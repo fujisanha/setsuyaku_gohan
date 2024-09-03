@@ -1,1 +1,14 @@
 @use '~bootstrap/scss/bootstrap';
+
+.Notification {
+ .notice {
+   background-color: #00a381;
+   color: #fff;
+   text-align: center;
+ }
+ .alert {
+   background-color: #ec6d71;
+   color: #fff;
+   text-align: center;
+ }
+}
