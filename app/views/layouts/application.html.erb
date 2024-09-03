@@ -13,19 +13,9 @@
   </head>
 
   <body>
-    <nav class="navbar">
-      <div class="">
-        <%= link_to "節約ごはん", root_path, class: "navbar-brand" %>
-        <% if user_signed_in? %>
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn" %>
-        <% else %>
-          <%= link_to "新規登録", new_user_registration_path, class: "btn" %>
-          <%= link_to "ログイン", new_user_session_path, class: "btn" %>
-        <% end %>
-      </div>
-    </nav>
-    
+    <%= render 'layouts/header' %>
     <%= render 'layouts/notification' %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
