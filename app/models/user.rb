@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
          
-  validates :name, :email, :password, :password_confirmation, presence: { message: 'は必須項目です。' }
+  validates :name, :email, :password, :password_confirmation, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX, message: 'が無効です。' }
-  validates :password, length: { minimum: 6, message: 'は6文字以上です。' }
+  validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+  validates :password, :password_confirmation, length: { minimum: 6 }
   
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
