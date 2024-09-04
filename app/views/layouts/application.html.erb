@@ -12,10 +12,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column vh-100">
     <%= render 'layouts/header' %>
     <%= render 'layouts/notification' %>
-    <%= yield %>
+    <main class="mb-auto">
+      <%= yield %>
+    </main>
     <%= render 'layouts/footer' %>
   </body>
 </html>
