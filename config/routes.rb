@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   }
   root to: 'homes#top'
   get 'homes/about', as: 'about'
+  get "users" => redirect("/users/sign_up")
   
   # ゲストログイン
   devise_scope :user do
