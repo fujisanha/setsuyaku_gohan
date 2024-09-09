@@ -4,18 +4,18 @@
       <%= form_with model: @user, url: user_registration_path do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
   
-        <h2 style="color: #FFF;"><i class="fa-solid fa-user-plus"> 新規登録</i></h2>
-        <div class="field">
+        <h2 class="pt-5" style="color: #FFF;"><i class="fa-solid fa-user-plus"> 新規登録</i></h2>
+        <div class="field pt-3">
           <%= f.label :名前 %><br>
           <%= f.text_field :name %>
         </div>
 
-        <div class="field">
+        <div class="field pt-3">
           <%= f.label :メールアドレス %><br />
           <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
         </div>
 
-        <div class="field">
+        <div class="field pt-3">
           <%= f.label :パスワード %>
         <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> 文字以上)</em>
@@ -23,12 +23,12 @@
           <%= f.text_field :password, autocomplete: "new-password" %>
         </div>
 
-        <div class="field">
+        <div class="field pt-3">
           <%= f.label :パスワードの確認 %><br />
           <%= f.text_field :password_confirmation, autocomplete: "new-password" %>
         </div>
 
-        <div class="actions">
+        <div class="actions p-3">
           <%= f.submit "新規登録" %>
         </div>
         <%= render "devise/shared/links" %>
