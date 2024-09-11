@@ -11,6 +11,7 @@
  }
 }
 
+// bootstrapのデザインを変更
 .btn-primary {
   background-color: #f5e56b;
   color: #fff;
@@ -20,4 +21,19 @@
   background-color: #38b48b;
   color: #fff;
   border-color: #38b48b;
+}
+
+// topページのボタン
+.top-login-btn {
+  background-color: #fff;
+}
+.top-login-btn:hover {
+}
+
+.top-guestlogin-btn {
+  background-color: #f5e56b;
+}
+.top-guestlogin-btn:hover {
+  background-color: #38b48b;
+  color: #fff;
 }

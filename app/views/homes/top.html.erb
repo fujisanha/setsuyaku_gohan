@@ -4,18 +4,18 @@
   </div>
 </div>
 <div class="row d-grid gap-2 col-sm-6 mx-auto text-center">
-  <div class="col-lg-12 btn rounded-pill mb-4", style="background-color:#FFF;">
-    <%= link_to new_user_registration_path, style: "color:red;" do %>
+  <div class="col-lg-12 btn rounded-pill mb-4 top-login-btn">
+    <%= link_to new_user_registration_path, style: "color:#F0908D;" do %>
       <i class="fa-solid fa-user-plus"> 新規登録</i>
     <% end %>
   </div>
-  <div class="col-lg-12 btn rounded-pill mb-4", style="background-color:#FFF;">
-    <%= link_to new_user_session_path do %>
+  <div class="col-lg-12 btn rounded-pill mb-4 top-login-btn">
+    <%= link_to new_user_session_path, style: "color:#F0908D;" do %>
       <i class="fa-solid fa-right-to-bracket"> ログイン</i>
     <% end %>
   </div>
-  <div class="col-lg-12 btn rounded-pill mb-5", style="background-color:#f5e56b;">
-    <%= link_to users_guest_sign_in_path, method: :post do %>
+  <div class="col-lg-12 btn rounded-pill mb-5 top-guestlogin-btn">
+    <%= link_to users_guest_sign_in_path, method: :post, style: "color:#fff;" do %>
       <i class="fa-solid fa-eye"> ゲストログイン</i>
     <% end %>
   </div>
