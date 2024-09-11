@@ -1,28 +1,28 @@
 <div class="row">
-  <div class="col-lg-12 text-center">
-    <h2 class="pt-5" style="color: #FFF;"><i class="fa-solid fa-right-to-bracket"> ログイン</i></h2>
+  <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+    
+    <h2 class="m-5 d-flex justify-content-center" style="color: #FFF;">
+      <i class="fa-solid fa-right-to-bracket"> ログイン</i>
+    </h2>
     <%= form_with model: @user, url: user_session_path do |f| %>
-      <div class="field pt-3">
-        <%= f.label :名前 %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      <div class="field mb-3">
+        <%= f.label :name, "名前", style: "color:#fff;" %><br />
+        <%= f.text_field :name, placeholder: "name", autofocus: true, autocomplete: "name", class: "form-control" %>
       </div>
 
-      <div class="field pt-3">
-        <%= f.label :パスワード %><br />
-        <%= f.text_field :password, autocomplete: "current-password" %>
+      <div class="field mb-5">
+        <%= f.label :password, "パスワード", style: "color:#fff;" %><br />
+        <%= f.text_field :password, placeholder: "password", autocomplete: "current-password", class: "form-control" %>
       </div>
 
-      <% if devise_mapping.rememberable? %>
-        <div class="field pt-3">
-          <%= f.check_box :remember_me %>
-          <%= f.label :記録する %>
+      <div class="row actions mb-5">
+        <div class="col-md-8 offset-md-2">
+          <%= f.submit "ログイン", class: "btn btn-primary btn-block" %>
         </div>
-      <% end %>
-
-      <div class="actions p-3">
-        <%= f.submit "ログイン" %>
       </div>
-      <%= render "devise/shared/links" %>
+      <div class="d-flex justify-content-center">
+        <%= render "devise/shared/links" %>
+      </div>
     <% end %>
   </div>
 </div>
