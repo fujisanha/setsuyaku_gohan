@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-    <%= form_with model: @recipe, method: :post do |f| %>
-    <h2 class="my-5 d-flex justify-content-center" style="color: #fff;">
+    <h2 class="mb-5 d-flex justify-content-center" style="color: #fff;">
       節約ごはんの投稿
     </h2>
     
+    <%= form_with model: @recipe, method: :post do |f| %>
     <div class="field mb-3">
       <%= f.label :title, "メニュー名", style: "color:#FFF;" %>
       <%= f.text_field :title, placeholder: "menu", class: "form-control" %>
@@ -12,25 +12,20 @@
     
     <%= form_with(model: @recipe, local: true) do |s| %>
     <%= s.label :body, "作り方の手順", style: "color:#fff;" %>
-    <%= s.text_field :body, placeholder: "how to make", class: "form-control mb-3" %>
-    <div class="recipes">
-        <%= s.fields_for :details do |t| %>
-            <%= render partial: "detail_fields", locals: { f: t } %>
+      <%= s.fields_for :details do |t| %>
+        <%= render partial: "detail_fields", locals: { f: t } %>
+      <% end %>
+      <div class="links mb-3">
+        <%= link_to_add_association s, :details do %>
+          <i class="fa-regular fa-square-plus"> 追加する</i>
         <% end %>
-        <div class="links mb-3">
-          <%= link_to_add_association s, :details do %>
-            <i class="fa-regular fa-square-plus"> 追加する</i>
-          <% end %>
-        </div>
-    </div>
+      </div>
     <div class="row actions mb-5">
       <div class="col-md-8 offset-md-2">
         <%= f.submit "投稿", class: "btn btn-primary btn-block" %>
       </div>
     </div>
-    
-<% end %>
-    
+    <% end %>
     <% end %>
   </div>
 </div>
