@@ -1,8 +1,16 @@
 Rails.application.routes.draw do
+  
+  # recipes
+  resources :recipes
+  get 'recipes/confirm', as: 'confirm'
+  
+  # デバイス
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     passwords: 'users/passwords'
   }
+  
+  # homes
   root to: 'homes#top'
   get 'homes/about', as: 'about'
   get "users" => redirect("/users/sign_up")
