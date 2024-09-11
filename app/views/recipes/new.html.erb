@@ -10,27 +10,24 @@
       <%= f.text_field :title, placeholder: "menu", class: "form-control" %>
     </div>
     
-    <div class="field">
-      <%= f.label :body, "作り方の手順", style: "color:#fff;" %>
-      <%= f.text_field :body, class: "form-control" %>
-    </div>
-    
-    <!--ここから追記-->
     <%= form_with(model: @recipe, local: true) do |s| %>
-    <%= s.label :body, "作り方の手順" %>
-    <%= s.text_field :body %>
+    <%= s.label :body, "作り方の手順", style: "color:#fff;" %>
+    <%= s.text_field :body, placeholder: "how to make", class: "form-control mb-3" %>
     <div class="recipes">
         <%= s.fields_for :details do |t| %>
             <%= render partial: "detail_fields", locals: { f: t } %>
         <% end %>
-        <div class="links">
-            <%= link_to_add_association "追加", s, :details %>
+        <div class="links mb-3">
+          <%= link_to_add_association s, :details do %>
+            <i class="fa-regular fa-square-plus"> 追加する</i>
+          <% end %>
         </div>
     </div>
-    <div class="actions">
-        <%= s.submit %>
+    <div class="row actions mb-5">
+      <div class="col-md-8 offset-md-2">
+        <%= f.submit "投稿", class: "btn btn-primary btn-block" %>
+      </div>
     </div>
-    <!--ここまで-->
     
 <% end %>
     
