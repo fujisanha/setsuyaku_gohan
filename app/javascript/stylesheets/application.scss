@@ -10,6 +10,14 @@
    text-align: center;
  }
 }
-body {
-  background-image: image-url("hoge.jpg");
+
+.btn-primary {
+  background-color: #f5e56b;
+  color: #fff;
+  border-color: #38b48b;
+}
+.btn-primary:hover {
+  background-color: #38b48b;
+  color: #fff;
+  border-color: #38b48b;
 }
