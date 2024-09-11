@@ -1,1 +1,4 @@
-<%= f.text_field :body, placeholder: "+", class: "form-control mb-3" %>
+<div class="field mb-3">
+  <%= f.text_field :body, placeholder: "+", class: "form-control" %>
+  <%= link_to_remove_association "削除", f %>
+</div>

@@ -25,8 +25,13 @@ class RecipesController < ApplicationController
   def confirm
   end
   
+  def destroy
+  end
+  
   private
+  
   def recipe_params
-    params.require(:recipe).permit(:name, details_attributes: [:id, :name, :_destroy])
+    params.require(:recipe).permit(:title, :body, details_attributes: [:id, :body, :_destroy], :details => [:name],
+    recipe_items_attributes: [:id, :title, :body, :recipe_id, :details_id, :_destroy, ingredient_attributes: [:body]])
   end
 end
