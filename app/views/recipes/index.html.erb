@@ -4,11 +4,15 @@
       みんなの節約ごはん
     </h2>
     
-    <%= link_to "投稿する", new_recipe_path %>
+     <div class="col-lg-2 offset-lg-5 btn rounded-pill mb-5 d-flex justify-content-center top-guestlogin-btn">
+        <%= link_to new_recipe_path, style: "color:#fff;" do %>
+          <i class="fa-solid fa-circle-plus"> 投稿する</i>
+        <% end %>
+      </div>
     
     <div class="row">
       <% @recipes.each do |recipe| %>
-        <div class="col-lg-4">
+        <div class="col-lg-4 mb-5">
           <div class="card h-100">
             <%= image_tag 'no_image.png', class: "card-img-top" %>
             <div class="card-body">
