@@ -13,6 +13,9 @@ import "popper.js";
 import "bootstrap";
 import "../stylesheets/application"; 
 
+require("jquery")
+import "cocoon"   //cocoonを動かすための記述
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
