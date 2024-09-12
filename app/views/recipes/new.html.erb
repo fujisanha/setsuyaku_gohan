@@ -5,6 +5,10 @@
     </h2>
     
     <%= form_with model: @recipe, method: :post do |f| %>
+    <div>
+      <%= f.file_field :image, accept: "image/*" %>
+    </div>
+    
     <div class="field mb-3">
       <%= f.label :title, "メニュー名", style: "color:#FFF;" %>
       <%= f.text_field :title, placeholder: "menu", class: "form-control" %>
