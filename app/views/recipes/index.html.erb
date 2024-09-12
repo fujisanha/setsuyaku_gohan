@@ -16,7 +16,7 @@
           <%= link_to recipe_path(recipe) do %>
             <div class="card p-1">
               <% if recipe.image.attached? %>
-                <%= image_tag recipe.image, size: "250x250", class: "card-img-top object-fit-cover border rounded" %>
+                <%= image_tag recipe.image, class: "card-img-top object-fit-cover border rounded" %>
               <% else %>
                 <%= image_tag "no_image.png", class: "card-image-top object-fit-cover border rounded" %>
               <% end %>
