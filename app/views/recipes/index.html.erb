@@ -14,8 +14,12 @@
       <% @recipes.each do |recipe| %>
         <div class="col-lg-4 mb-5">
           <%= link_to recipe_path(recipe) do %>
-            <div class="card h-100">
-              <%= image_tag 'no_image.png', class: "card-img-top" %>
+            <div class="card p-1">
+              <% if recipe.image.attached? %>
+                <%= image_tag recipe.image, size: "250x250", class: "card-img-top object-fit-cover border rounded" %>
+              <% else %>
+                <%= image_tag "no_image.png", class: "card-image-top object-fit-cover border rounded" %>
+              <% end %>
               <div class="card-body">
                 <h5 class="card-title"><%= recipe.title %></h5>
                 <span><%= recipe.created_at.to_s(:datetime_jp) %></span>
