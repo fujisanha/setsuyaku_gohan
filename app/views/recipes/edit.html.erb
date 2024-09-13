@@ -1,2 +1,47 @@
-<h1>Recipes#edit</h1>
-<p>Find me in app/views/recipes/edit.html.erb</p>
+<div class="row">
+  <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+    
+    <%= form_with model: @recipe, method: :post, local: true do |f| %>
+    <div class="mb-3">
+      <% if @recipe.image.attached? %>
+        <%= image_tag @recipe.image, class: "img-fluid img-thumbnail" %>
+      <% else %>
+        <%= image_tag "no_image.png", class: "img-fluid img-thumbnail" %>
+      <% end %>
+    </div>
+    
+    <div class="mb-5">
+      <%= f.file_field :image, accept: "image/*" %>
+    </div>
+    
+    <div class="field mb-3">
+      <%= f.label :title, "メニュー名", style: "color:#FFF;" %>
+      <%= f.text_field :title, placeholder: "menu", class: "form-control" %>
+    </div>
+    
+    <%= form_with(model: @recipe, local: true) do |s| %>
+    <%= s.label :body, "作り方の手順", style: "color:#fff;" %>
+      <%= s.fields_for :details do |t| %>
+        <%= render partial: "detail_fields", locals: { f: t } %>
+      <% end %>
+      <div class="links mb-5">
+        <%= link_to_add_association s, :details do %>
+          <i class="fa-regular fa-square-plus"> 追加する</i>
+        <% end %>
+      </div>
+      
+    <div class="row actions mb-3">
+      <div class="col-md-8 offset-md-2">
+        <%= f.submit "更新", class: "btn btn-primary btn-block" %>
+      </div>
+    </div>
+    
+    <div class="row links mb-5">
+      <div class="col-md-8 offset-md-2">
+        <%= link_to "< 戻る", recipe_path(@recipe), class: "d-flex justify-content-center" %>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+</div>

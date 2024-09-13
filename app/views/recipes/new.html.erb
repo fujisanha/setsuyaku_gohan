@@ -4,7 +4,7 @@
       節約ごはんの投稿
     </h2>
     
-    <%= form_with model: @recipe, method: :post do |f| %>
+    <%= form_with model: @recipe, method: :post, local: true do |f| %>
     <div class="mb-3">
       <% if @recipe.image.attached? %>
         <%= image_tag @recipe.image, class: "img-fluid img-thumbnail" %>
@@ -13,7 +13,7 @@
       <% end %>
     </div>
     
-    <div class="mb-3">
+    <div class="mb-5">
       <%= f.file_field :image, accept: "image/*" %>
     </div>
     
@@ -27,7 +27,7 @@
       <%= s.fields_for :details do |t| %>
         <%= render partial: "detail_fields", locals: { f: t } %>
       <% end %>
-      <div class="links mb-3">
+      <div class="links mb-5">
         <%= link_to_add_association s, :details do %>
           <i class="fa-regular fa-square-plus"> 追加する</i>
         <% end %>
