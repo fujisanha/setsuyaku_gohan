@@ -48,7 +48,6 @@
   font-size: 26px;
   font-weight: bold;
 }
-
 .form-title:before {
     position: absolute;
     bottom: -0.6rem;
@@ -56,4 +55,9 @@
     right: 0rem;
     border-bottom: 1px solid;
     content: '';
+}
+
+// 検索バー
+.search-btn {
+  
 }

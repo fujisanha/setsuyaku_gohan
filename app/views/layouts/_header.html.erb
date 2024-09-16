@@ -1,30 +1,38 @@
-<header class="nav justify-content-end pt-3">
-  <% if user_signed_in? %>
-  <div class="btn">
-    <%= link_to destroy_user_session_path, method: :delete do %>
-      <i class="fa-solid fa-right-from-bracket"></i>
-    <% end %>
+<nav class="navbar mb-3" style="box-shadow:0px 8px 5px -5px rgba(0,0,0,0.5)" >
+  
+  <div class="container-fluid m-2 justify-content-center">
+    <form class="d-flex">
+      <input class="form-control me-2 rounded-pill" type="search" placeholder="検索する" aria-label="Search">
+      <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
   </div>
-  <% else %>
-  <div class="btn">
-    <%= link_to new_user_registration_path do %>
-      <i class="fa-solid fa-user-plus"></i>
-    <% end %>
-  </div>
-  <div class="btn">
-    <%= link_to new_user_session_path do %>
-      <i class="fa-solid fa-right-to-bracket"></i>
-    <% end %>
-  </div>
-  <div class="btn">
-    <%= link_to users_guest_sign_in_path, method: :post do %>
-      <i class="fa-solid fa-eye"></i>
-    <% end %>
-  </div>
-  <div class="btn">
-    <%= link_to about_path do %>
-      <i class="fa-solid fa-circle-question"></i>
-    <% end %>
-  </div>
-  <% end %>
-</header>
+  
+  <!--<% if user_signed_in? %>-->
+  <!--<div class="btn">-->
+  <!--  <%= link_to destroy_user_session_path, method: :delete do %>-->
+  <!--    <i class="fa-solid fa-right-from-bracket"></i>-->
+  <!--  <% end %>-->
+  <!--</div>-->
+  <!--<% else %>-->
+  <!--<div class="btn">-->
+  <!--  <%= link_to new_user_registration_path do %>-->
+  <!--    <i class="fa-solid fa-user-plus"></i>-->
+  <!--  <% end %>-->
+  <!--</div>-->
+  <!--<div class="btn">-->
+  <!--  <%= link_to new_user_session_path do %>-->
+  <!--    <i class="fa-solid fa-right-to-bracket"></i>-->
+  <!--  <% end %>-->
+  <!--</div>-->
+  <!--<div class="btn">-->
+  <!--  <%= link_to users_guest_sign_in_path, method: :post do %>-->
+  <!--    <i class="fa-solid fa-eye"></i>-->
+  <!--  <% end %>-->
+  <!--</div>-->
+  <!--<div class="btn">-->
+  <!--  <%= link_to about_path do %>-->
+  <!--    <i class="fa-solid fa-circle-question"></i>-->
+  <!--  <% end %>-->
+  <!--</div>-->
+  <!--<% end %>-->
+</nav>
