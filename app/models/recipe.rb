@@ -5,6 +5,8 @@ class Recipe < ApplicationRecord
   has_many :recipe_materials, dependent: :destroy
   accepts_nested_attributes_for :recipe_materials, allow_destroy: true
   
+  validates :title, :body, presence: true
+  
   has_one_attached :image
   
 end

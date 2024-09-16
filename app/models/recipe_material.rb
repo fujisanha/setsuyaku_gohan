@@ -3,6 +3,8 @@ class RecipeMaterial < ApplicationRecord
   belongs_to :recipe
   belongs_to :material
   
+  validates :saving_size, :unit, presence: true
+  
   after_find :set_material_name
   before_validation :update_material_id
   

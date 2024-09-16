@@ -6,7 +6,7 @@
 
     <div class="mb-5">
       <% if @recipe.image.attached? %>
-        <%= image_tag @recipe.image, class: "img-fluid img-thumbnail" %>
+        <%= image_tag @recipe.image.variant(resize: "440x386^", gravity: :center, crop: "440x386+0+0").processed, class: "card-img-top object-fit-cover border rounded" %>
       <% else %>
         <%= image_tag "no_image.png", class: "img-fluid img-thumbnail" %>
       <% end %>

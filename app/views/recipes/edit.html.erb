@@ -4,7 +4,7 @@
     <%= form_with model: @recipe, method: :post, local: true do |f| %>
     <div class="mb-3">
       <% if @recipe.image.attached? %>
-        <%= image_tag @recipe.image, class: "img-fluid img-thumbnail" %>
+        <%= image_tag @recipe.image.variant(resize: "440x386^", gravity: :center, crop: "440x386+0+0").processed, class: "card-img-top object-fit-cover border rounded" %>
       <% else %>
         <%= image_tag "no_image.png", class: "img-fluid img-thumbnail" %>
       <% end %>
@@ -36,9 +36,9 @@
       </div>
     </div>
     
-    <div class="row links mb-3">
-      <div class="col-md-8 offset-md-2">
-        <%= link_to "確認画面へ", confirm_path(@recipe) %>
+    <div class="row links mb-5">
+      <div class="col-md-8 offset-md-2 text-center">
+        <%= link_to "投稿を削除する", confirm_path(@recipe), style: "color:red;" %>
       </div>
     </div>
     

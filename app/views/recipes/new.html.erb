@@ -24,7 +24,6 @@
       <%= f.text_field :title, placeholder: "menu", class: "form-control" %>
     </div>
     
-    <%#= form_with(model: @recipe, local: true) do |s| %>
     <%= f.label :body, "作り方の手順", style: "color:#fff;" %>
       <%= f.fields_for :details do |t| %>
         <%= render partial: "detail_fields", locals: { f: t } %>

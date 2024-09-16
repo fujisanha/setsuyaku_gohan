@@ -1,9 +1,16 @@
 <div class="nested-fields">
   <div class="field mb-3">
+    <%= f.label :material_name, "材料名", style: "color:#fff;" %>
     <%= f.text_field :material_name, placeholder: "", class: "form-control mb-1" %>
+    
+    <%= f.label :saving_size, "分量", style: "color:#fff;" %>
     <%= f.text_field :saving_size, placeholder: "", class: "form-control mb-1" %>
+    
+    <%= f.label :unit, "単位", style: "color:#fff;" %>
     <%= f.text_field :unit, placeholder: "", class: "form-control mb-1" %>
+    
     <%= f.hidden_field :material_id %>
+    
     <%= link_to_remove_association "削除", f %>
   </div>
 </div>
