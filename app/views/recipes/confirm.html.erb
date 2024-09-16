@@ -1,2 +1,4 @@
 <h1>Recipes#confirm</h1>
 <p>Find me in app/views/recipes/confirm.html.erb</p>
+
+<%= link_to "この投稿を削除する", recipe_path(@recipe), class: "btn btn-danger btn-block", method: :delete, data: { confirm: "本当に削除しますか？" } %>

@@ -1,62 +1,16 @@
 <div class="row">
-  <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+  <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
     <h2 class="mb-5 d-flex justify-content-center" style="color: #fff;">
       節約ごはんの投稿
     </h2>
     
-    <%= form_with model: @recipe, method: :post, local: true do |f| %>
-    <div class="mb-3">
-      <div id="prev-image">
-        <% if @recipe.image.attached? %>
-          <%= image_tag @recipe.image, class: "img-fluid img-thumbnail" %>
-        <% else %>
-          <%= image_tag "no_image.png", class: "img-fluid img-thumbnail" %>
-        <% end %>
-      </div>
-    </div>
-    
-    <div class="mb-5">
-      <%= f.file_field :image, accept: "image/*", id: "recipe_image" %>
-    </div>
-    
-    <div class="field mb-3">
-      <%= f.label :title, "メニュー名", style: "color:#FFF;" %>
-      <%= f.text_field :title, placeholder: "menu", class: "form-control" %>
-    </div>
-    
-    <%= f.label :body, "作り方の手順", style: "color:#fff;" %>
-      <%= f.fields_for :details do |t| %>
-        <%= render partial: "detail_fields", locals: { f: t } %>
-      <% end %>
-      <div class="links mb-5">
-        <%= link_to_add_association f, :details do %>
-          <i class="fa-regular fa-square-plus"> 追加する</i>
-        <% end %>
-      </div>
-      
-      <%= f.fields_for :recipe_materials do |t| %>
-        <%= render partial: "recipe_material_fields", locals: { f: t } %>
-      <% end %>
-      <div class="links mb-5">
-        <%= link_to_add_association f, :recipe_materials do %>
-          <i class="fa-regular fa-square-plus"> 追加する</i>
-        <% end %>
-      </div>
-      
-      
-    <div class="row actions mb-5">
-      <div class="col-md-8 offset-md-2">
-        <%= f.submit "投稿", class: "btn btn-primary btn-block" %>
-      </div>
-    </div>
+    <%= render partial: "form", locals: { recipe: @recipe } %>
     
     <div class="row links mb-5">
       <div class="col-md-8 offset-md-2">
         <%= link_to "< 戻る", recipes_path, class: "d-flex justify-content-center" %>
       </div>
     </div>
-    <%# end %>
-    <% end %>
   </div>
 </div>
 
