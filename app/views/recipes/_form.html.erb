@@ -14,11 +14,11 @@
   </div>
     
   <div class="field mb-5">
-    <h5><%= f.label :title, "メニュー名", style: "color:#FFF;" %></h5>
+    <h5 class="form-title"><%= f.label :title, "メニュー名" %></h5>
     <%= f.text_field :title, placeholder: "menu", class: "form-control" %>
   </div>
     
-  <h5><%= f.label :body, "作り方の手順", style: "color:#fff;" %></h5>
+  <h5 class="form-title"><%= f.label :body, "作り方の手順" %></h5>
     <%= f.fields_for :details do |t| %>
       <%= render partial: "detail_fields", locals: { f: t } %>
     <% end %>
@@ -28,7 +28,7 @@
       <% end %>
     </div>
       
-  <h5><%= f.label :recipe_materials, :材料の登録, style: "color:#fff;" %></h5>
+  <h5 class="form-title"><%= f.label :recipe_materials, :材料の登録 %></h5>
     <%= f.fields_for :recipe_materials do |t| %>
       <%= render partial: "recipe_material_fields", locals: { f: t } %>
     <% end %>
