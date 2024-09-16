@@ -6,15 +6,17 @@
     
     <%= form_with model: @recipe, method: :post, local: true do |f| %>
     <div class="mb-3">
-      <% if @recipe.image.attached? %>
-        <%= image_tag @recipe.image, class: "img-fluid img-thumbnail" %>
-      <% else %>
-        <%= image_tag "no_image.png", class: "img-fluid img-thumbnail" %>
-      <% end %>
+      <div id="prev-image">
+        <% if @recipe.image.attached? %>
+          <%= image_tag @recipe.image, class: "img-fluid img-thumbnail" %>
+        <% else %>
+          <%= image_tag "no_image.png", class: "img-fluid img-thumbnail" %>
+        <% end %>
+      </div>
     </div>
     
     <div class="mb-5">
-      <%= f.file_field :image, accept: "image/*" %>
+      <%= f.file_field :image, accept: "image/*", id: "recipe_image" %>
     </div>
     
     <div class="field mb-3">
@@ -22,22 +24,56 @@
       <%= f.text_field :title, placeholder: "menu", class: "form-control" %>
     </div>
     
-    <%= form_with(model: @recipe, local: true) do |s| %>
-    <%= s.label :body, "作り方の手順", style: "color:#fff;" %>
-      <%= s.fields_for :details do |t| %>
+    <%#= form_with(model: @recipe, local: true) do |s| %>
+    <%= f.label :body, "作り方の手順", style: "color:#fff;" %>
+      <%= f.fields_for :details do |t| %>
         <%= render partial: "detail_fields", locals: { f: t } %>
       <% end %>
       <div class="links mb-5">
-        <%= link_to_add_association s, :details do %>
+        <%= link_to_add_association f, :details do %>
           <i class="fa-regular fa-square-plus"> 追加する</i>
         <% end %>
       </div>
+      
+      <%= f.fields_for :recipe_materials do |t| %>
+        <%= render partial: "recipe_material_fields", locals: { f: t } %>
+      <% end %>
+      <div class="links mb-5">
+        <%= link_to_add_association f, :recipe_materials do %>
+          <i class="fa-regular fa-square-plus"> 追加する</i>
+        <% end %>
+      </div>
+      
+      
     <div class="row actions mb-5">
       <div class="col-md-8 offset-md-2">
         <%= f.submit "投稿", class: "btn btn-primary btn-block" %>
       </div>
     </div>
-    <% end %>
+    
+    <div class="row links mb-5">
+      <div class="col-md-8 offset-md-2">
+        <%= link_to "< 戻る", recipes_path, class: "d-flex justify-content-center" %>
+      </div>
+    </div>
+    <%# end %>
     <% end %>
   </div>
 </div>
+
+<script>
+  const createImageHTML = (blob) => {
+    const imageElement = document.getElementById('prev-image');
+    const blobImage = document.createElement('img');
+    blobImage.setAttribute('class', 'img-thumbnail');
+    blobImage.setAttribute('src', blob);
+    imageElement.removeChild(imageElement.children[0]);
+    imageElement.appendChild(blobImage);
+  };
+  
+  document.getElementById('recipe_image').addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    const blob = window.URL.createObjectURL(file);
+    createImageHTML(blob);
+  });
+</script>

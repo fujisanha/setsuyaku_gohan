@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipe: one
+  material: one
+  saving_size: 1.5
+  unit: 1
+
+two:
+  recipe: two
+  material: two
+  saving_size: 1.5
+  unit: 1

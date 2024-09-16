@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   # recipes
   resources :recipes
-  get 'recipes/confirm', as: 'confirm'
+  get 'recipes/confirm/:id', to: "recipes#confirm", as: 'confirm'
   
   # デバイス
   devise_for :users, controllers: {

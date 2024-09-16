@@ -3,7 +3,7 @@
     <h2 class="mb-5 d-flex justify-content-center" style="color: #fff;">
       <%= @recipe.title %>
     </h2>
-    
+
     <div class="mb-5">
       <% if @recipe.image.attached? %>
         <%= image_tag @recipe.image, class: "img-fluid img-thumbnail" %>
@@ -11,7 +11,7 @@
         <%= image_tag "no_image.png", class: "img-fluid img-thumbnail" %>
       <% end %>
     </div>
-    
+
     <div class="row actions mb-5">
       <div class="col-md-8 offset-md-2">
         <%= link_to "編集", edit_recipe_path(@recipe), class: "btn btn-primary btn-block" %>
@@ -24,3 +24,12 @@
     </div>
   </div>
 </div>
+
+<% @details.each do |detail| %>
+  <%= detail.inspect %>
+<% end %>
+
+
+<% @recipe_materials.each do |recipe_material| %>
+  <%= recipe_material.inspect %>
+<% end %>

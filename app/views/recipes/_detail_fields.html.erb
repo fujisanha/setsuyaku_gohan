@@ -1,4 +1,6 @@
-<div class="field mb-3">
-  <%= f.text_field :body, placeholder: "how to make", class: "form-control mb-1" %>
-  <%= link_to_remove_association "削除", f %>
+<div class="nested-fields">
+  <div class="field mb-3">
+    <%= f.text_field :body, placeholder: "how to make", class: "form-control mb-1" %>
+    <%= link_to_remove_association "削除", f %>
+  </div>
 </div>

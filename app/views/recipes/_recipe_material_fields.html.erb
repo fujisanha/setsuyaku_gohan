@@ -1,0 +1,9 @@
+<div class="nested-fields">
+  <div class="field mb-3">
+    <%= f.text_field :material_name, placeholder: "", class: "form-control mb-1" %>
+    <%= f.text_field :saving_size, placeholder: "", class: "form-control mb-1" %>
+    <%= f.text_field :unit, placeholder: "", class: "form-control mb-1" %>
+    <%= f.hidden_field :material_id %>
+    <%= link_to_remove_association "削除", f %>
+  </div>
+</div>

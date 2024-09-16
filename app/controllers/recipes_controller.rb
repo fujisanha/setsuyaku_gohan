@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @details = @recipe.details.build
+    @recipe_materials = @recipe.recipe_materials.build
   end
   
   def create
@@ -19,6 +20,8 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @details = @recipe.details
+    @recipe_materials = @recipe.recipe_materials
   end
 
   def edit
@@ -43,7 +46,10 @@ class RecipesController < ApplicationController
   private
   
   def recipe_params
-    params.require(:recipe).permit(:title, :body, :image,  details_attributes: [:id, :body, :image, :_destroy], :details => [:name],
+    params.require(:recipe).permit(:title, :body, :image,
+    recipe_materials_attributes: [:id, :saving_size, :unit, :material_id, :material_name, :_destroy],
+    details_attributes: [:id, :body, :image, :_destroy],
+    :details => [:name],
     recipe_items_attributes: [:id, :title, :body, :image, :recipe_id, :details_id, :_destroy, ingredient_attributes: [:body]])
   end
 end
