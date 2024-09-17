@@ -4,18 +4,41 @@
       <% end %>
     </div>
     
-<div class="row" style="background-color:#fff;" >
-  <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-    <h2 class="mb-5 d-flex justify-content-center show-title">
+<div class="row">
+  <div class="col-10 offset-1" style="background-color:#fff;">
+    <h2 class="m-5 show-title">
       <%= @recipe.title %>
     </h2>
 
-    <div class="mb-5">
-      <% if @recipe.image.attached? %>
-        <%= image_tag @recipe.image.variant(resize: "440x386^", gravity: :center, crop: "440x386+0+0").processed, class: "card-img-top object-fit-cover border rounded" %>
-      <% else %>
-        <%= image_tag "no_image.png", class: "img-fluid img-thumbnail" %>
-      <% end %>
+    <div class="row mb-5">
+      <div class="col-5 offset-1">
+        <% if @recipe.image.attached? %>
+          <%= image_tag @recipe.image.variant(resize: "440x386^", gravity: :center, crop: "440x386+0+0").processed, class: "card-img-top object-fit-cover border rounded" %>
+        <% else %>
+          <%= image_tag "no_image.png", class: "img-fluid img-thumbnail" %>
+        <% end %>
+      </div>
+      <div class="col-5 user-tag m-2">
+      </div>
+    </div>
+    
+    <div class="row mb-5">
+      <div class="col-6 offset-3">
+        <h4 class="d-flex justify-content-center show-mini-title">材料</h4>
+        <ol>
+          <% @recipe_materials.each do |recipe_material| %>
+            <li>
+              <%= recipe_material.material.name %>...<%= recipe_material.saving_size %><%= recipe_material.unit %>
+            </li>
+          <% end %>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="row mb-5">
+      <div class="col-6 offset-3">
+        <h4 class="d-flex justify-content-center show-mini-title">作り方</h4>
+      </div>
     </div>
     
     <div class="row links mb-5">

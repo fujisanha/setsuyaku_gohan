@@ -94,6 +94,21 @@ input.font-awesome {
 
 // 詳細画面のタイトル
 .show-title {
- 
+  font-weight: bold;
+  color: #545454;
+  border-bottom: 6px double #98BCAC;
 }
-
+.show-mini-title {
+  font-weight: bold;
+  color: #545454;
+  border-bottom: 2px solid #98BCAC;
+}
+// ユーザータグ
+.user-tag {
+  position: relative;
+  background: #F8F5E3;
+  box-shadow: 0px 0px 0px 5px #F8F5E3;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+  color: #454545;
+}
