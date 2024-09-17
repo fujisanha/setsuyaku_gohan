@@ -13,8 +13,8 @@
     <div class="row">
       <% @recipes.each do |recipe| %>
         <div class="col-lg-4 mb-5">
-          <%= link_to recipe_path(recipe) do %>
-            <div class="card p-2 shadow-sm">
+          <%= link_to recipe_path(recipe), style: "text-decoration:none;" do %>
+            <div class="card p-4 shadow-sm">
               <% if recipe.image.attached? %>
                 <%= image_tag recipe.image.variant(resize: "440x386^", gravity: :center, crop: "440x386+0+0").processed, class: "card-img-top object-fit-cover border rounded" %>
               <% else %>
