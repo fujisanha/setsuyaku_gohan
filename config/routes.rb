@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # recipes
   resources :recipes
   get 'recipes/confirm/:id', to: "recipes#confirm", as: 'confirm'
+  resource :favorite, only: [:create, :destroy]
+
   
   # デバイス
   devise_for :users, controllers: {
