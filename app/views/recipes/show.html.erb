@@ -24,20 +24,25 @@
     
     <div class="row mb-5">
       <div class="col-6 offset-3">
-        <h4 class="d-flex justify-content-center show-mini-title">材料</h4>
-        <ol>
+        <h4 class="d-flex justify-content-center show-mini-title mb-3">材料</h4>
+        <ul class="recipe_material-ul">
           <% @recipe_materials.each do |recipe_material| %>
-            <li>
+            <li class="mb-2 recipe_material-ul">
               <%= recipe_material.material.name %>...<%= recipe_material.saving_size %><%= recipe_material.unit %>
             </li>
           <% end %>
-        </ol>
+        </ul>
       </div>
     </div>
     
     <div class="row mb-5">
       <div class="col-6 offset-3">
-        <h4 class="d-flex justify-content-center show-mini-title">作り方</h4>
+        <h4 class="d-flex justify-content-center show-mini-title mb-3">作り方</h4>
+        <ol>
+          <% @details.each do |detail| %>
+            <li class="mb-2"><%= detail.body %></li>
+          <% end %>
+        </ol>
       </div>
     </div>
     
@@ -48,12 +53,3 @@
     </div>
   </div>
 </div>
-
-<% @details.each do |detail| %>
-  <%= detail.inspect %>
-<% end %>
-
-
-<% @recipe_materials.each do |recipe_material| %>
-  <%= recipe_material.inspect %>
-<% end %>

@@ -1,43 +1,38 @@
 <%= form_with model: recipe, method: :post, local: true do |f| %>
-  <div class="mb-3">
-    <div id="prev-image">
+  <div class="mb-3 col-8 offset-2">
+    <div id="prev-image" class="mb-3">
       <% if recipe.image.attached? %>
         <%= image_tag recipe.image, class: "img-fluid img-thumbnail" %>
       <% else %>
         <%= image_tag "no_image.png", class: "img-fluid img-thumbnail" %>
       <% end %>
     </div>
+    <div class="mb-5">
+      <%= f.file_field :image, accept: "image/*", id: "recipe_image" %>
+    </div>
   </div>
-    
-  <div class="mb-5">
-    <%= f.file_field :image, accept: "image/*", id: "recipe_image" %>
-  </div>
-    
+  
   <div class="field mb-5">
-    <h5 class="form-title"><%= f.label :title, "メニュー名" %></h5>
-    <%= f.text_field :title, placeholder: "menu", class: "form-control" %>
+    <%= f.text_field :title, placeholder: "レシピ名", class: "form-control" %>
   </div>
     
-  <h5 class="form-title"><%= f.label :body, "作り方の手順" %></h5>
-    <%= f.fields_for :details do |t| %>
-      <%= render partial: "detail_fields", locals: { f: t } %>
+  <%= f.fields_for :recipe_materials do |t| %>
+    <%= render partial: "recipe_material_fields", locals: { f: t } %>
+  <% end %>
+  <div class="links mb-5">
+    <%= link_to_add_association f, :recipe_materials do %>
+      <i class="fa-regular fa-square-plus"> 追加する</i>
     <% end %>
-    <div class="links mb-5">
-      <%= link_to_add_association f, :details do %>
-        <i class="fa-regular fa-square-plus"> 追加する</i>
-      <% end %>
-    </div>
-      
-  <h5 class="form-title"><%= f.label :recipe_materials, :材料の登録 %></h5>
-    <%= f.fields_for :recipe_materials do |t| %>
-      <%= render partial: "recipe_material_fields", locals: { f: t } %>
+  </div>
+    
+  <%= f.fields_for :details do |t| %>
+    <%= render partial: "detail_fields", locals: { f: t } %>
+  <% end %>
+  <div class="links mb-5">
+    <%= link_to_add_association f, :details do %>
+      <i class="fa-regular fa-square-plus"> 追加する</i>
     <% end %>
-    <div class="links mb-5">
-      <%= link_to_add_association f, :recipe_materials do %>
-        <i class="fa-regular fa-square-plus"> 追加する</i>
-      <% end %>
-    </div>
-      
+  </div>
       
   <div class="row actions mb-5">
     <div class="col-md-8 offset-md-2">
