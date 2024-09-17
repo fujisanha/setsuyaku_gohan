@@ -1,4 +1,7 @@
 <%= form_with model: recipe, method: :post, local: true do |f| %>
+
+<%= render 'layouts/error_messages', resource: f.object %>
+
   <div class="mb-3 col-8 offset-2">
     <div id="prev-image" class="mb-3">
       <% if recipe.image.attached? %>

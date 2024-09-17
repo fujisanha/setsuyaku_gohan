@@ -16,7 +16,9 @@
       <%= render 'layouts/header' %>
     </header>
     <main class="container mb-auto">
-      <%= render 'layouts/notification' %>
+      <div class="mb-3">
+        <%= render 'layouts/notification' %>
+      </div>
       <%= yield %>
     </main>
     <footer>

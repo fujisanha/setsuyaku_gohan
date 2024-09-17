@@ -1,14 +1,11 @@
 <div class="row">
   <div class="col-lg-10 offset-lg-1">
-    <!--<h2 class="mb-5 d-flex justify-content-center" style="color: #fff;">-->
-    <!--  みんなの節約ごはん-->
-    <!--</h2>-->
     
-     <div class="col-lg-2 offset-lg-5 btn rounded-pill mb-5 d-flex justify-content-center top-guestlogin-btn">
-        <%= link_to new_recipe_path, style: "color:#fff;" do %>
-          <i class="fa-solid fa-circle-plus"> 投稿する</i>
-        <% end %>
-      </div>
+    <div class="col-lg-2 offset-lg-5 btn rounded-pill mb-5 d-flex justify-content-center top-guestlogin-btn">
+      <%= link_to new_recipe_path, style: "color:#fff;" do %>
+        <i class="fa-solid fa-circle-plus"> 投稿する</i>
+      <% end %>
+    </div>
     
     <div class="row">
       <% @recipes.each do |recipe| %>
