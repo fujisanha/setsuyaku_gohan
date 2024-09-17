@@ -1,5 +1,13 @@
 @use '~bootstrap/scss/bootstrap';
 
+// foneawwesomeの定義
+input.font-awesome {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+}
+
 .Notification {
  .notice {
    color: #fff;
@@ -18,23 +26,34 @@
   border-color: #f5e56b;
 }
 .btn-primary:hover {
-  background-color: #38b48b;
+  background-color: #80A492;
   color: #fff;
-  border-color: #38b48b;
+  border-color: #80A492;
+}
+.card {
+  color: #545454;
+  text-decoration: none;
+}
+.card-title {
+  // color: #545454;
+  font-weight: bold;
 }
 
 // topページのボタン
 .top-login-btn {
-  background-color: #fff;
+  background-color: #F8F5E3;
+  color: #fff;
 }
 .top-login-btn:hover {
+  background-color: #80A492;
+  color: #fff;
 }
 
 .top-guestlogin-btn {
   background-color: #f5e56b;
 }
 .top-guestlogin-btn:hover {
-  background-color: #38b48b;
+  background-color: #80A492;
   color: #fff;
 }
 
@@ -71,3 +90,9 @@
   background: #7fbfff;
   color:#fff;
 }
+
+// 詳細画面のタイトル
+.show-title {
+ 
+}
+

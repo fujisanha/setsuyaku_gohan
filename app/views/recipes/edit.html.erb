@@ -16,3 +16,21 @@
         <%= link_to "投稿を削除する", confirm_path(@recipe), style: "color:red;" %>
       </div>
     </div>
+    
+    
+<script>
+  const createImageHTML = (blob) => {
+    const imageElement = document.getElementById('prev-image');
+    const blobImage = document.createElement('img');
+    blobImage.setAttribute('class', 'img-thumbnail');
+    blobImage.setAttribute('src', blob);
+    imageElement.removeChild(imageElement.children[0]);
+    imageElement.appendChild(blobImage);
+  };
+  
+  document.getElementById('recipe_image').addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    const blob = window.URL.createObjectURL(file);
+    createImageHTML(blob);
+  });
+</script>
