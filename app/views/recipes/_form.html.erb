@@ -2,7 +2,7 @@
 
 <%= render 'layouts/error_messages', resource: f.object %>
 
-  <div class="mb-3 col-8 offset-2">
+  <div class="mb-3 col-8 offset-2 rounded mx-auto d-block">
     <div id="prev-image" class="mb-3">
       <% if recipe.image.attached? %>
         <%= image_tag recipe.image, class: "img-fluid img-thumbnail" %>
@@ -15,8 +15,12 @@
     </div>
   </div>
   
-  <div class="field mb-5">
+  <div class="field mb-3">
     <%= f.text_field :title, placeholder: "レシピ名", class: "form-control" %>
+  </div>
+  
+  <div class="field mb-5">
+    <%= f.text_area :body, placeholder: "レシピの説明やポイント", class: "form-control" %>
   </div>
     
   <%= f.fields_for :recipe_materials do |t| %>
@@ -39,7 +43,24 @@
       
   <div class="row actions mb-5">
     <div class="col-md-8 offset-md-2">
-      <%= f.submit @submit_label, class: "btn btn-primary btn-block" %>
+      <%= f.submit @submit_label, class: "btn btn-primary btn-block rounded-pill", style: "font-weight:bold;" %>
     </div>
   </div>
 <% end %>
+
+<script>
+  const createImageHTML = (blob) => {
+    const imageElement = document.getElementById('prev-image');
+    const blobImage = document.createElement('img');
+    blobImage.setAttribute('class', 'img-thumbnail');
+    blobImage.setAttribute('src', blob);
+    imageElement.removeChild(imageElement.children[0]);
+    imageElement.appendChild(blobImage);
+  };
+  
+  document.getElementById('recipe_image').addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    const blob = window.URL.createObjectURL(file);
+    createImageHTML(blob);
+  });
+</script>

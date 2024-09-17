@@ -27,7 +27,7 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
-    @submit_label = "編集"
+    @submit_label = "更新"
   end
   
   def update

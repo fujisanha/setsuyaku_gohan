@@ -1,5 +1,9 @@
 @use '~bootstrap/scss/bootstrap';
 
+
+body {
+  font-weight: bold;
+}
 // foneawwesomeの定義
 input.font-awesome {
     font-family: FontAwesome;
@@ -29,6 +33,7 @@ input.font-awesome {
   border-color: #80A492;
 }
 .card {
+  background-color: #F8F5E3;
   color: #545454;
   text-decoration: none;
 }
@@ -103,12 +108,8 @@ input.font-awesome {
 }
 // ユーザータグ
 .user-tag {
-  position: relative;
-  background: #F8F5E3;
-  box-shadow: 0px 0px 0px 5px #F8F5E3;
-  border: dashed 2px white;
-  padding: 0.2em 0.5em;
-  color: #454545;
+  color: #545454;
+  font-weight: bold;
 }
 
 // リストデザイン

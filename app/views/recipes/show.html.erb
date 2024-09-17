@@ -1,11 +1,11 @@
 <div class="col-lg-2 offset-lg-5 btn rounded-pill mb-5 d-flex justify-content-center btn-primary">
-      <%= link_to edit_recipe_path(@recipe), style: "color:#fff;" do %>
-        <i class="fa-solid fa-pen-to-square"> 編集する</i>
-      <% end %>
-    </div>
+  <%= link_to edit_recipe_path(@recipe), style: "color:#fff;" do %>
+    <i class="fa-solid fa-pen-to-square"> 編集する</i>
+  <% end %>
+</div>
     
 <div class="row">
-  <div class="col-10 offset-1" style="background-color:#fff;">
+  <div class="col-10 offset-1 mb-5" style="background-color:#F8F5E3;">
     <h2 class="m-5 show-title">
       <%= @recipe.title %>
     </h2>
@@ -18,7 +18,10 @@
           <%= image_tag "no_image.png", class: "img-fluid img-thumbnail" %>
         <% end %>
       </div>
-      <div class="col-5 user-tag m-2">
+      <div class="col-5 user-tag">
+        <p class="m-3">
+          <%= @recipe.body %>
+        </p>
       </div>
     </div>
     
@@ -27,7 +30,7 @@
         <h4 class="d-flex justify-content-center show-mini-title mb-3">材料</h4>
         <ul class="recipe_material-ul">
           <% @recipe_materials.each do |recipe_material| %>
-            <li class="mb-2 recipe_material-ul">
+            <li class="mb-2 recipe_material-ul" style="color:#545454;">
               <%= recipe_material.material.name %>...<%= recipe_material.saving_size %><%= recipe_material.unit %>
             </li>
           <% end %>
@@ -40,16 +43,19 @@
         <h4 class="d-flex justify-content-center show-mini-title mb-3">作り方</h4>
         <ol>
           <% @details.each do |detail| %>
-            <li class="mb-2"><%= detail.body %></li>
+            <li class="mb-2" style="color:#545454;"><%= detail.body %></li>
           <% end %>
         </ol>
       </div>
     </div>
     
-    <div class="row links mb-5">
-      <div class="col-md-8 offset-md-2">
-        <%= link_to "< 戻る", recipes_path, class: "d-flex justify-content-center" %>
-      </div>
-    </div>
+    <span class="d-flex justify-content-center mb-3" style="color:#545454;"><%= @recipe.created_at.to_s(:datetime_jp) %></span>
+    
+  </div>
+</div>
+
+<div class="row links mb-5">
+  <div class="col-md-8 offset-md-2">
+    <%= link_to "< 戻る", recipes_path, class: "d-flex justify-content-center" %>
   </div>
 </div>
