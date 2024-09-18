@@ -9,26 +9,22 @@
       <%= render 'layouts/error_messages', resource: f.object %>
       
       <div class="field mb-3">
-        <%= f.label :name, "名前", style: "color:#FFF;" %>
-        <%= f.text_field :name, placeholder: "name", class: "form-control" %>
+        <%= f.text_field :name, placeholder: "名前", class: "form-control" %>
       </div>
 
       <div class="field mb-3">
-        <%= f.label :mail, "メールアドレス", style: "color:#fff;" %><br />
-        <%= f.text_field :email, placeholder: "email", autofocus: true, autocomplete: "email", class: "form-control" %>
+        <%= f.text_field :email, placeholder: "メールアドレス", autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
 
       <div class="field mb-3">
-        <%= f.label :password, "パスワード", style: "color:#fff;" %>
       <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> 文字以上)</em>
       <% end %><br />
-        <%= f.text_field :password, placeholder: "password", autocomplete: "new-password", class: "form-control" %>
+        <%= f.text_field :password, placeholder: "パスワード", autocomplete: "new-password", class: "form-control" %>
       </div>
 
       <div class="field mb-5">
-        <%= f.label :password_confirmation, "パスワード【確認】", style: "color:#fff;" %><br />
-        <%= f.text_field :password_confirmation, placeholder: "password【確認】", autocomplete: "new-password", class: "form-control" %>
+        <%= f.text_field :password_confirmation, placeholder: "パスワード【確認】", autocomplete: "new-password", class: "form-control" %>
       </div>
 
       <div class="row actions mb-5">

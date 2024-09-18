@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  # recipes
+  resources :users, only:[:index, :edit]
+  
+  # recipesとfavorites
   resources :recipes do
     resource :favorites, only:[:create, :destroy]
   end

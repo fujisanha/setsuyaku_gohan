@@ -1,16 +1,23 @@
 <div class="row">
-  <div class="col-lg-10 offset-lg-1">
+  <div class="col-10 offset-1">
     
-    <div class="col-lg-2 offset-lg-5 btn rounded-pill mb-5 d-flex justify-content-center top-guestlogin-btn">
-      <%= link_to new_recipe_path, style: "color:#fff;" do %>
-        <i class="fa-solid fa-circle-plus"> 投稿する</i>
-      <% end %>
+    <div class="row d-flex justify-content-center mb-5">
+      <div class="col-lg-2 btn rounded-pill top-guestlogin-btn m-1">
+        <%= link_to new_recipe_path, style: "color:#fff;" do %>
+          <i class="fa-solid fa-circle-plus"> 投稿する</i>
+        <% end %>
+      </div>
+      <div class="col-lg-2 btn rounded-pill top-guestlogin-btn m-1">
+        <%= link_to users_path, style: "color:#fff;" do %>
+          <i class="fa-solid fa-circle-plus"> ユーザー一覧</i>
+        <% end %>
+      </div>
     </div>
     
     <div class="row">
       <% @recipes.each do |recipe| %>
         <div class="col-lg-4 mb-5">
-          <%= link_to recipe_path(recipe), style: "text-decoration:none;" do %>
+          <%= link_to recipe_path(recipe) do %>
           
             <div class="card p-4 shadow-sm">
             

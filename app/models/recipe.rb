@@ -6,6 +6,7 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :recipe_materials, allow_destroy: true
   
   has_many :favorites, dependent: :destroy
+  belongs_to :user
   
   validates :title, presence: true
   validates :body, length: { maximum: 100 }

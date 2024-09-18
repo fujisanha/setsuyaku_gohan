@@ -5,12 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable
   
   has_many :favorites, dependent: :destroy
+  has_many :recipes, dependent: :destroy
          
   validates :name, :email, :password, :password_confirmation, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :password, :password_confirmation, length: { minimum: 6 }
   validates :password, confirmation: true
+  
+  has_one_attached :image
   
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
