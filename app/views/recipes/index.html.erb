@@ -17,6 +17,16 @@
           <i class="fa-solid fa-users"> ユーザー</i>
         <% end %>
       </div>
+      <div class="col-lg-2 btn rounded-pill top-guestlogin-btn m-1">
+        <%= link_to "#", style: "color:#fff;" do %>
+          <i class="fa-solid fa-pencil"> 記録する</i>
+        <% end %>
+      </div>
+      <div class="col-lg-2 btn rounded-pill top-guestlogin-btn m-1">
+        <%= link_to destroy_user_session_path, method: :delete, style: "color:#fff;" do %>
+          <i class="fa-solid fa-right-from-bracket"> ログアウト</i>
+        <% end %>
+      </div>
     </div>
     
     <div class="row">

@@ -5,33 +5,4 @@
       <input class="form-control me-2 rounded-pill" type="text" placeholder="&#xF002;" aria-label="Search" style="font-family: FontAwesome;" >
     </form>
   </div>
-  
-  <% if user_signed_in? %>
-  <div class="btn">
-    <%= link_to destroy_user_session_path, method: :delete do %>
-      <i class="fa-solid fa-right-from-bracket"></i>
-    <% end %>
-  </div>
-  <% else %>
-  <div class="btn">
-    <%= link_to new_user_registration_path do %>
-      <i class="fa-solid fa-user-plus"></i>
-    <% end %>
-  </div>
-  <div class="btn">
-    <%= link_to new_user_session_path do %>
-      <i class="fa-solid fa-right-to-bracket"></i>
-    <% end %>
-  </div>
-  <div class="btn">
-    <%= link_to users_guest_sign_in_path, method: :post do %>
-      <i class="fa-solid fa-eye"></i>
-    <% end %>
-  </div>
-  <div class="btn">
-    <%= link_to about_path do %>
-      <i class="fa-solid fa-circle-question"></i>
-    <% end %>
-  </div>
-  <% end %>
 </nav>
