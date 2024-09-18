@@ -1,14 +1,6 @@
 <div class="row mb-5">
   <div class="col-10 offset-1">
     
-    <div class="row d-flex justify-content-center mb-5">
-      <div class="col-lg-2 btn rounded-pill top-guestlogin-btn m-1">
-        <%= link_to recipes_path, style: "color:#fff;" do %>
-          <i class="fa-solid fa-circle-plus"> レシピ一覧</i>
-        <% end %>
-      </div>
-    </div>
-    
     <div class="row d-flex justify-content-center">
       <% @users.each do |user| %>
         <div class="card mb-3" style="max-width: 540px;">
@@ -32,10 +24,5 @@
         </div>
       <% end %>
     </div>
-  </div>
-</div>
-<div class="row links mb-5">
-  <div class="col-md-8 offset-md-2">
-    <%= link_to "< 戻る", recipes_path, class: "d-flex justify-content-center" %>
   </div>
 </div>
