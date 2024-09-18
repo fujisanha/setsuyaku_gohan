@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   
   # recipes
-  resources :recipes
+  resources :recipes do
+    resource :favorites, only:[:create, :destroy]
+  end
   get 'recipes/confirm/:id', to: "recipes#confirm", as: 'confirm'
-  resource :favorite, only: [:create, :destroy]
 
   
   # デバイス

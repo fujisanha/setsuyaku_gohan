@@ -11,23 +11,39 @@
       <% @recipes.each do |recipe| %>
         <div class="col-lg-4 mb-5">
           <%= link_to recipe_path(recipe), style: "text-decoration:none;" do %>
+          
             <div class="card p-4 shadow-sm">
+            
+              <!--いいね機能の実装をしたがレイアウトが崩れる-->
+              <div class="mb-3">
+                <% if current_user.already_favorited?(recipe) %>
+                  <%= link_to recipe_favorites_path(recipe), method: :delete do %>
+                    <i class="fa-solid fa-star fa-2x"></i>
+                    <% end %>
+                <% else %>
+                  <%= link_to recipe_favorites_path(recipe), method: :post do %>
+                    <i class="fa-regular fa-star fa-2x"></i>
+                  <% end %>
+                <% end %>
+                <%= recipe.favorites.count %>
+              </div>
+              
               <% if recipe.image.attached? %>
                 <%= image_tag recipe.image.variant(resize: "440x386^", gravity: :center, crop: "440x386+0+0").processed, class: "card-img-top object-fit-cover border rounded" %>
               <% else %>
                 <%= image_tag "no_image.png", class: "card-image-top object-fit-cover border rounded" %>
               <% end %>
+              
               <div class="card-body">
                 <h5 class="card-title"><%= recipe.title %></h5>
-                <p>
-                  <i class="fa-regular fa-star"></i>
-                </p>
                 <span><%= recipe.created_at.to_s(:datetime_jp) %></span>
               </div>
+              
             </div>
           <% end %>
         </div>
       <% end %>
     </div>
+    
   </div>
 </div>
