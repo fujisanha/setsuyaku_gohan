@@ -6,34 +6,82 @@
     </form>
   </div>
 </nav>
-<div class="row">
+<% if user_signed_in? %>
+<nav class="row">
   <div class="col-10 offset-1">
     <div class="row d-flex justify-content-center mb-5">
-      <div class="col-lg-2 btn rounded-pill btn-primary m-1">
-        <%= link_to my_path, style: "color:#fff;" do %>
-          <i class="fa-solid fa-user"> マイページ</i>
-        <% end %>
-      </div>
-      <div class="col-lg-2 btn rounded-pill btn-primary m-1">
-        <%= link_to recipes_path, style: "color:#fff;" do %>
-          <i class="fa-solid fa-user"> レシピ一覧</i>
-        <% end %>
-      </div>
-      <div class="col-lg-2 btn rounded-pill btn-primary m-1">
-        <%= link_to new_recipe_path, style: "color:#fff;" do %>
-          <i class="fa-solid fa-circle-plus"> 投稿する</i>
-        <% end %>
-      </div>
-      <div class="col-lg-2 btn rounded-pill btn-primary m-1">
-        <%= link_to users_path, style: "color:#fff;" do %>
-          <i class="fa-solid fa-users"> ユーザー</i>
-        <% end %>
-      </div>
-      <div class="col-lg-2 btn rounded-pill btn-primary m-1">
-        <%= link_to "#", style: "color:#fff;" do %>
-          <i class="fa-solid fa-pencil"> 記録する</i>
-        <% end %>
-      </div>
+      
+      <% if current_page?(my_path) %>
+        <div class="col-lg-2 btn rounded-pill btn-success m-1">
+          <%= link_to my_path, style: "color:#fff;" do %>
+            <i class="fa-solid fa-user"> マイページ</i>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="col-lg-2 btn rounded-pill btn-primary m-1">
+          <%= link_to my_path, style: "color:#fff;" do %>
+            <i class="fa-solid fa-user"> マイページ</i>
+          <% end %>
+        </div>
+      <% end %>
+      
+      <% if current_page?(recipes_path) %>
+        <div class="col-lg-2 btn rounded-pill btn-success m-1">
+          <%= link_to recipes_path, style: "color:#fff;" do %>
+            <i class="fa-solid fa-user"> レシピ一覧</i>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="col-lg-2 btn rounded-pill btn-primary m-1">
+          <%= link_to recipes_path, style: "color:#fff;" do %>
+            <i class="fa-solid fa-user"> レシピ一覧</i>
+          <% end %>
+        </div>
+      <% end %>
+      
+      <% if current_page?(new_recipe_path) %>
+        <div class="col-lg-2 btn rounded-pill btn-success m-1">
+          <%= link_to new_recipe_path, style: "color:#fff;" do %>
+            <i class="fa-solid fa-circle-plus"> 投稿する</i>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="col-lg-2 btn rounded-pill btn-primary m-1">
+          <%= link_to new_recipe_path, style: "color:#fff;" do %>
+            <i class="fa-solid fa-circle-plus"> 投稿する</i>
+          <% end %>
+        </div>
+      <% end %>
+      
+      <% if current_page?(users_path) %>
+        <div class="col-lg-2 btn rounded-pill btn-success m-1">
+          <%= link_to users_path, style: "color:#fff;" do %>
+             <i class="fa-solid fa-users"> ユーザー</i>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="col-lg-2 btn rounded-pill btn-primary m-1">
+          <%= link_to users_path, style: "color:#fff;" do %>
+             <i class="fa-solid fa-users"> ユーザー</i>
+          <% end %>
+        </div>
+      <% end %>
+      
+      <% if current_page?('#') %>
+        <div class="col-lg-2 btn rounded-pill btn-success m-1">
+          <%= link_to '#', style: "color:#fff;" do %>
+             <i class="fa-solid fa-pencil"> 記録する</i>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="col-lg-2 btn rounded-pill btn-primary m-1">
+          <%= link_to '#', style: "color:#fff;" do %>
+            <i class="fa-solid fa-pencil"> 記録する</i>
+          <% end %>
+        </div>
+      <% end %>
+      
     </div>
   </div>
-</div>
+</nav>
+<% end %>

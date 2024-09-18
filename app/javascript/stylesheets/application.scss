@@ -22,14 +22,34 @@ input.font-awesome {
  }
 
 // bootstrapのデザインを変更
+// プライマリー
 .btn-primary {
-  background-color: #866D61;
+  background-color: #f5e56b;
   color: #fff;
-  border-color: #866D61;
+  border-color: #f5e56b;
 }
 .btn-primary:hover {
   background-color: #80A492;
   color: #fff;
+  border-color: #80A492;
+}
+.btn-primary:not(:disabled):not(.disabled):active {
+  background-color: #80A492;
+  border-color: #80A492;
+}
+// サクセス
+.btn-success {
+  background-color: #80A492;
+  color: #fff;
+  border-color: #80A492;
+}
+.btn-success:hover {
+  background-color: #80A492;
+  color: #fff;
+  border-color: #80A492;
+}
+.btn-success:not(:disabled):not(.disabled):active {
+  background-color: #80A492;
   border-color: #80A492;
 }
 .card {
@@ -45,7 +65,7 @@ input.font-awesome {
 
 // topページのボタン
 .top-login-btn {
-  background-color: #866D61;
+  background-color: #9A7F6E;
   color: #fff;
 }
 .top-login-btn:hover {

@@ -7,9 +7,9 @@
           <div class="row g-0">
             <div class="col-md-4">
               <% if user.image.attached? %>
-                <%= image_tag user.image.variant(resize: "440x386^", gravity: :center, crop: "440x386+0+0").processed, class: "card-img-top object-fit-cover border rounded-circle m-1" %>
+                <%= image_tag user.image.variant(resize: "440x386^", gravity: :center, crop: "440x386+0+0").processed, class: "card-img-top object-fit-cover border rounded-circle m-3" %>
               <% else %>
-                <%= image_tag "no_image.png", class: "card-img-top object-fit-cover border rounded-circle m-1" %>
+                <%= image_tag "no_image.png", class: "card-img-top object-fit-cover border rounded-circle m-3" %>
               <% end %>
             </div>
             <div class="col-md-8">
