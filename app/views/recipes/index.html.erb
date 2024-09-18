@@ -3,13 +3,18 @@
     
     <div class="row d-flex justify-content-center mb-5">
       <div class="col-lg-2 btn rounded-pill top-guestlogin-btn m-1">
+        <%= link_to users_path, style: "color:#fff;" do %>
+          <i class="fa-solid fa-user"> マイページ</i>
+        <% end %>
+      </div>
+      <div class="col-lg-2 btn rounded-pill top-guestlogin-btn m-1">
         <%= link_to new_recipe_path, style: "color:#fff;" do %>
           <i class="fa-solid fa-circle-plus"> 投稿する</i>
         <% end %>
       </div>
       <div class="col-lg-2 btn rounded-pill top-guestlogin-btn m-1">
         <%= link_to users_path, style: "color:#fff;" do %>
-          <i class="fa-solid fa-circle-plus"> ユーザー一覧</i>
+          <i class="fa-solid fa-users"> ユーザー一覧</i>
         <% end %>
       </div>
     </div>

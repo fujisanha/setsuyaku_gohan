@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :users, only:[:index, :edit]
+  # ユーザー
+  resources :users, only:[:index]
+  get 'users/my', as: 'my'
   
   # recipesとfavorites
   resources :recipes do

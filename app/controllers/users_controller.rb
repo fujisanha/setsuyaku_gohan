@@ -3,11 +3,6 @@ class UsersController < ApplicationController
     @users = User.all.order(created_at: :desc)
   end
   
-  def edit
-    
-  end
-  
-  def update
-    
+  def my
   end
 end
