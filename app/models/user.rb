@@ -22,10 +22,10 @@ class User < ApplicationRecord
     end
   end
   
+  # selfにはカレントユーザーが入り、カレントユーザーに結びついている言い値の中で、
+  # 今いいねしようとしているレシピのIDが存在するか(exists)を調べている
+  # もうすでにレシピIDに言い値が保存されていたなら、をここで定義している
   def already_favorited?(recipe)
-    # selfにはカレントユーザーが入り、カレントユーザーに結びついている言い値の中で、
-    # 今いいねしようとしているレシピのIDが存在するか(exists)を調べている
-    # もうすでにレシピIDに言い値が保存されていたなら、をここで定義している
     self.favorites.exists?(recipe_id: recipe.id)
   end
 end
