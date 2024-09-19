@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   # ユーザー
-  resources :users, only:[:index]
+  resources :users, only:[:index, :edit, :update]
   get 'users/my', as: 'my'
   
   # recipesとfavorites
@@ -17,8 +17,9 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
   
+  root to: 'recipes#index'
   # homes
-  root to: 'homes#top'
+  get 'homes/top', as: 'top'
   get 'homes/about', as: 'about'
   get "users" => redirect("/users/sign_up")
   
