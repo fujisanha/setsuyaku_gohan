@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   has_many :favorites, dependent: :destroy
   has_many :recipes, dependent: :destroy
+  has_many :comments, dependent: :destroy
          
   validates :name, :email, :password, :password_confirmation, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

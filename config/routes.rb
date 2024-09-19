@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # recipesとfavorites
   resources :recipes do
     resource :favorites, only:[:create, :destroy]
+    resources :comments, only: [:index, :create] 
   end
   get 'recipes/confirm/:id', to: "recipes#confirm", as: 'confirm'
 
