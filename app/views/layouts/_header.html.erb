@@ -24,17 +24,31 @@
           <% end %>
         </div>
       <% end %>
+      
+      <% if current_page?(users_path) %>
+        <div class="col-lg-2 btn rounded-pill btn-success m-1">
+          <%= link_to users_path, style: "color:#fff;" do %>
+             <i class="fa-solid fa-users"> ユーザー</i>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="col-lg-2 btn rounded-pill btn-primary m-1">
+          <%= link_to users_path, style: "color:#fff;" do %>
+             <i class="fa-solid fa-users"> ユーザー</i>
+          <% end %>
+        </div>
+      <% end %>
 
-      <% if controller_name == "recipes" && (action_name == "index" || action_name == "show") %>
+      <% if (controller_name == "recipes" && (action_name == "index" || action_name == "show")) || (controller_name == "comments" && action_name == "index") %>
         <div class="col-lg-2 btn rounded-pill btn-success m-1">
           <%= link_to recipes_path, style: "color:#fff;" do %>
-            <i class="fa-solid fa-bowl-food"> レシピ一覧</i>
+            <i class="fa-solid fa-bowl-food"> 節約ごはん</i>
           <% end %>
         </div>
       <% else %>
         <div class="col-lg-2 btn rounded-pill btn-primary m-1">
           <%= link_to recipes_path, style: "color:#fff;" do %>
-            <i class="fa-solid fa-bowl-food"> レシピ一覧</i>
+            <i class="fa-solid fa-bowl-food"> 節約ごはん</i>
           <% end %>
         </div>
       <% end %>
@@ -49,20 +63,6 @@
         <div class="col-lg-2 btn rounded-pill btn-primary m-1">
           <%= link_to new_recipe_path, style: "color:#fff;" do %>
             <i class="fa-solid fa-circle-plus"> 投稿する</i>
-          <% end %>
-        </div>
-      <% end %>
-
-      <% if current_page?(users_path) %>
-        <div class="col-lg-2 btn rounded-pill btn-success m-1">
-          <%= link_to users_path, style: "color:#fff;" do %>
-             <i class="fa-solid fa-users"> ユーザー</i>
-          <% end %>
-        </div>
-      <% else %>
-        <div class="col-lg-2 btn rounded-pill btn-primary m-1">
-          <%= link_to users_path, style: "color:#fff;" do %>
-             <i class="fa-solid fa-users"> ユーザー</i>
           <% end %>
         </div>
       <% end %>

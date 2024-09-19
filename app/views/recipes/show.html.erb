@@ -37,14 +37,20 @@
         <div class="mb-3">
           <% if current_user.already_favorited?(@recipe) %>
             <%= link_to recipe_favorites_path(@recipe), method: :delete do %>
-              <i class="fa-solid fa-star fa-2x"></i>
+              <i class="fa-solid fa-star fa-2x ml-2"></i>
             <% end %>
           <% else %>
             <%= link_to recipe_favorites_path(@recipe), method: :post do %>
-              <i class="fa-regular fa-star fa-2x"></i>
+              <i class="fa-regular fa-star fa-2x ml-2"></i>
             <% end %>
           <% end %>
           <%= @recipe.favorites.count %>
+          
+          <!--コメント-->
+          <%= link_to recipe_comments_path(@recipe) do %>
+            <i class="fa-solid fa-comments fa-2x ml-2" style="color:#98BCAC;"></i>
+          <% end %>
+          <%= @recipe.comments.count %>
         </div>
         
       </div>
