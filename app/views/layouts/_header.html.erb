@@ -1,5 +1,5 @@
 <nav class="navbar mb-4" style="box-shadow:0px 8px 5px -5px rgba(0,0,0,0.5)" >
-  
+
   <div class="container-fluid m-2 justify-content-center">
     <form class="d-flex">
       <input class="form-control me-2 rounded-pill" type="text" placeholder="&#xF002;" aria-label="Search" style="font-family: FontAwesome;" >
@@ -10,7 +10,7 @@
 <nav class="row">
   <div class="col-10 offset-1">
     <div class="row d-flex justify-content-center mb-5">
-      
+
       <% if current_page?(my_path) %>
         <div class="col-lg-2 btn rounded-pill btn-success m-1">
           <%= link_to my_path, style: "color:#fff;" do %>
@@ -24,8 +24,8 @@
           <% end %>
         </div>
       <% end %>
-      
-      <% if current_page?(recipes_path) %>
+
+      <% if controller_name == "recipes" && (action_name == "index" || action_name == "show") %>
         <div class="col-lg-2 btn rounded-pill btn-success m-1">
           <%= link_to recipes_path, style: "color:#fff;" do %>
             <i class="fa-solid fa-bowl-food"> レシピ一覧</i>
@@ -38,7 +38,7 @@
           <% end %>
         </div>
       <% end %>
-      
+
       <% if current_page?(new_recipe_path) %>
         <div class="col-lg-2 btn rounded-pill btn-success m-1">
           <%= link_to new_recipe_path, style: "color:#fff;" do %>
@@ -52,7 +52,7 @@
           <% end %>
         </div>
       <% end %>
-      
+
       <% if current_page?(users_path) %>
         <div class="col-lg-2 btn rounded-pill btn-success m-1">
           <%= link_to users_path, style: "color:#fff;" do %>
@@ -66,7 +66,7 @@
           <% end %>
         </div>
       <% end %>
-      
+
       <% if current_page?('#') %>
         <div class="col-lg-2 btn rounded-pill btn-success m-1">
           <%= link_to '#', style: "color:#fff;" do %>
@@ -80,7 +80,7 @@
           <% end %>
         </div>
       <% end %>
-      
+
     </div>
   </div>
 </nav>

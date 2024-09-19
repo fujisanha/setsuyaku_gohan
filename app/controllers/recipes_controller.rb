@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @details = @recipe.details
     @recipe_materials = @recipe.recipe_materials
+    @user = User.find(params[:id])
   end
 
   def edit

@@ -25,7 +25,7 @@
                 <% if current_user.already_favorited?(recipe) %>
                   <%= link_to recipe_favorites_path(recipe), method: :delete do %>
                     <i class="fa-solid fa-star fa-2x"></i>
-                    <% end %>
+                  <% end %>
                 <% else %>
                   <%= link_to recipe_favorites_path(recipe), method: :post do %>
                     <i class="fa-regular fa-star fa-2x"></i>
