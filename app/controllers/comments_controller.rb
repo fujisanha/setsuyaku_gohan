@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   def index
-    @comment = Comment.new
-    @comments = Comment.all
     @recipe = Recipe.find(params[:recipe_id])
+    @comments = @recipe.comments
+    @comment = Comment.new
   end
   def create
     @comment = current_user.comments.new(comment_params)
