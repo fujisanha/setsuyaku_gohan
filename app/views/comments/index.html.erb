@@ -46,4 +46,20 @@
         </div>
       </div>
     </div>
+    
+</div>
+<div class="row d-flex justify-content-center mb-5">
+  <%= form_with model: @comment, url: recipe_comments_path do |f| %>
+    <div class="field mb-3">
+      <%= f.text_field :comment, placeholder: "コメント", class: "form-control rounded-pill" %>
+    </div>
+    <div class="col-md-8 offset-md-2">
+      <%= f.submit "投稿する", class: "btn btn-primary btn-block rounded-pill", style: "font-weight:bold;" %>
+    </div>
+  <% end %>
+</div>
+<div class="row d-flex justify-content-center">
+  <% @comments.each do |comment| %>
+    
+  <% end %>
 </div>
