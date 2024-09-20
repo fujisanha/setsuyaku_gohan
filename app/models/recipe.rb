@@ -10,7 +10,7 @@ class Recipe < ApplicationRecord
   belongs_to :user
   
   validates :title, presence: true
-  validates :body, length: { maximum: 100 }
+  validates :body, length: { maximum: 20 }
   
   has_one_attached :image
   

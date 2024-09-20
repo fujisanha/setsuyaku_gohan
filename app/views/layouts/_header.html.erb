@@ -11,7 +11,7 @@
   <div class="col-10 offset-1">
     <div class="row d-flex justify-content-center mb-5">
 
-      <% if current_page?(my_path) %>
+      <% if controller_name == "users" && (action_name == "my" || action_name == "edit") %>
         <div class="col-lg-2 btn rounded-pill btn-success m-1">
           <%= link_to my_path, style: "color:#fff;" do %>
             <i class="fa-solid fa-user"> マイページ</i>
@@ -39,7 +39,7 @@
         </div>
       <% end %>
 
-      <% if (controller_name == "recipes" && (action_name == "index" || action_name == "show")) || (controller_name == "comments" && action_name == "index") %>
+      <% if (controller_name == "recipes" && (action_name == "index" || action_name == "show" || action_name == "edit")) || (controller_name == "comments" && action_name == "index") %>
         <div class="col-lg-2 btn rounded-pill btn-success m-1">
           <%= link_to recipes_path, style: "color:#fff;" do %>
             <i class="fa-solid fa-bowl-food"> 節約ごはん</i>
@@ -70,13 +70,13 @@
       <% if current_page?('#') %>
         <div class="col-lg-2 btn rounded-pill btn-success m-1">
           <%= link_to '#', style: "color:#fff;" do %>
-             <i class="fa-solid fa-pencil"> 記録する</i>
+             <i class="fa-solid fa-pencil"> 家計簿</i>
           <% end %>
         </div>
       <% else %>
         <div class="col-lg-2 btn rounded-pill btn-primary m-1">
           <%= link_to '#', style: "color:#fff;" do %>
-            <i class="fa-solid fa-pencil"> 記録する</i>
+            <i class="fa-solid fa-pencil"> 家計簿</i>
           <% end %>
         </div>
       <% end %>
