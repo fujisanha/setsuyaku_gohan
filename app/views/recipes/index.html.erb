@@ -8,43 +8,45 @@
             <div class="card p-4 shadow-sm mb-2">
               
               <% if recipe.image.attached? %>
+                <%#= image_tag recipe.image.blob.content_type %>
                 <%= image_tag recipe.image.variant(resize: "440x386^", gravity: :center, crop: "440x386+0+0").processed, class: "card-img-top object-fit-cover border rounded" %>
               <% else %>
-                <%= image_tag "no_image.png", class: "card-image-top object-fit-cover border rounded" %>
+                <%= image_tag "no_image.png", class: "img-fluid card-image-top border rounded" %>
               <% end %>
               
               <div class="card-body">
                 <h5 class="card-title"><%= recipe.title %></h5>
                 <p class="card-text"><small class="text-muted"><%= recipe.created_at.to_s(:datetime_jp) %></small></p>
+
+                            <!--いいね機能の実装-->
+                <div class="mt-2">
+                  <% if current_user %>
+                    <% if current_user.already_favorited?(recipe) %>
+                      <%= link_to recipe_favorites_path(recipe),  method: :delete do %>
+                        <i class="fa-solid fa-star fa-2x ml-2"></i>
+                      <% end %>
+                    <% else %>
+                      <%= link_to recipe_favorites_path(recipe), method: :post do %>
+                        <i class="fa-regular fa-star fa-2x ml-2"></i>
+                      <% end %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to recipe_favorites_path(recipe), method: :post do %>
+                      <i class="fa-regular fa-star fa-2x ml-2"></i>
+                    <% end %>
+                  <% end %>
+                  <%= recipe.favorites.count %>
+                  
+                  <!--コメント-->
+                  <%= link_to recipe_comments_path(recipe) do %>
+                    <i class="fa-solid fa-comments fa-2x ml-2" style="color:#fff;"></i>
+                  <% end %>
+                  <%= recipe.comments.count %>
+                </div>
               </div>
-              
             </div>
             
-            <!--いいね機能の実装-->
-            <div class="mb-3">
-              <% if current_user %>
-                <% if current_user.already_favorited?(recipe) %>
-                  <%= link_to recipe_favorites_path(recipe), method: :delete do %>
-                    <i class="fa-solid fa-star fa-2x ml-2"></i>
-                  <% end %>
-                <% else %>
-                  <%= link_to recipe_favorites_path(recipe), method: :post do %>
-                    <i class="fa-regular fa-star fa-2x ml-2"></i>
-                  <% end %>
-                <% end %>
-              <% else %>
-                <%= link_to recipe_favorites_path(recipe), method: :post do %>
-                  <i class="fa-regular fa-star fa-2x ml-2"></i>
-                <% end %>
-              <% end %>
-              <%= recipe.favorites.count %>
-              
-              <!--コメント-->
-              <%= link_to recipe_comments_path(recipe) do %>
-                <i class="fa-solid fa-comments fa-2x ml-2" style="color:#fff;"></i>
-              <% end %>
-              <%= recipe.comments.count %>
-            </div>
+
             
           <% end %>
         </div>

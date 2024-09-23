@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
   end
   
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
     if @recipe.save
       redirect_to recipes_path
     else
@@ -16,14 +16,16 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.all.order(created_at: :desc)
+    @recipes = Recipe.all
+    @recipes = @recipes.joins(:materials).where("materials.name LIKE ?", "%#{params[:keyword]}%") if params[:keyword].present?
+    @recipes = @recipes.order(created_at: :desc).uniq if @recipes.any?
   end
 
   def show
     @recipe = Recipe.find(params[:id])
     @details = @recipe.details
     @recipe_materials = @recipe.recipe_materials
-    @user = User.find(params[:id])
+    @user = @recipe.user
   end
 
   def edit
@@ -32,9 +34,9 @@ class RecipesController < ApplicationController
   end
   
   def update
-    recipe = Recipe.find(params[:id])
-    if recipe.update(recipe_params)
-      redirect_to recipe_path(recipe)
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      redirect_to recipe_path(@recipe)
     else
       render :edit
     end

@@ -63,6 +63,10 @@ input.font-awesome {
   border-bottom: 6px double #98BCAC;
 }
 
+.card a {
+  text-decoration: none!important;
+}
+
 // topページのボタン
 .top-login-btn {
   background-color: #80A492;

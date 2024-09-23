@@ -4,6 +4,7 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :details, allow_destroy: true
   has_many :recipe_materials, dependent: :destroy
   accepts_nested_attributes_for :recipe_materials, allow_destroy: true
+  has_many :materials, through: :recipe_materials
   
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -13,5 +14,7 @@ class Recipe < ApplicationRecord
   validates :body, length: { maximum: 20 }
   
   has_one_attached :image
+  
+  validates :image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
   
 end

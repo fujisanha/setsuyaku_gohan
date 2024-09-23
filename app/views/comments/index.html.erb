@@ -50,6 +50,7 @@
 </div>
 <div class="row d-flex justify-content-center mb-5">
   <%= form_with(model:[@recipe, @comment], method: :post) do |f| %>
+    <%= render 'layouts/error_messages', resource: f.object %>
     <div class="field mb-3" >
       <%= f.text_field :comment, placeholder: "コメント", class: "form-control rounded-pill" %>
     </div>
@@ -60,6 +61,6 @@
 </div>
 <div class="row d-flex justify-content-center" >
   <% @comments.each do |comment| %>
-    <%= comment.insert %>
+    <%= comment.comment %>
   <% end %>
 </div>

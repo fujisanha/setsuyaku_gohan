@@ -1,9 +1,14 @@
 <nav class="navbar mb-4" style="box-shadow:0px 8px 5px -5px rgba(0,0,0,0.5)" >
 
   <div class="container-fluid m-2 justify-content-center">
-    <form class="d-flex">
-      <input class="form-control me-2 rounded-pill" type="text" placeholder="&#xF002;" aria-label="Search" style="font-family: FontAwesome;" >
-    </form>
+    <% if yield(:search_form).present? %>
+      <%= yield(:search_form) %>
+    <% else %>
+      <%= form_with url: recipes_path, method: :get, class: "d-flex" do |f| %>
+        <%= f.search_field :keyword, class: "form-control me-2 rounded-pill", style: "font-family:FontAwesome;" %>
+        <%= f.submit "search" %>
+      <% end %>
+    <% end %>
   </div>
 </nav>
 <% if user_signed_in? %>
@@ -70,13 +75,13 @@
       <% if current_page?('#') %>
         <div class="col-lg-2 btn rounded-pill btn-success m-1">
           <%= link_to '#', style: "color:#fff;" do %>
-             <i class="fa-solid fa-pencil"> 家計簿</i>
+             <i class="fa-solid fa-pencil"> 記録する</i>
           <% end %>
         </div>
       <% else %>
         <div class="col-lg-2 btn rounded-pill btn-primary m-1">
           <%= link_to '#', style: "color:#fff;" do %>
-            <i class="fa-solid fa-pencil"> 家計簿</i>
+            <i class="fa-solid fa-pencil"> 記録する</i>
           <% end %>
         </div>
       <% end %>
