@@ -16,34 +16,34 @@
               
               <div class="card-body">
                 <h5 class="card-title"><%= recipe.title %></h5>
-                <p class="card-text"><small class="text-muted"><%= recipe.created_at.to_s(:datetime_jp) %></small></p>
-
                             <!--いいね機能の実装-->
-                <div class="mt-2">
+                <div>
                   <% if current_user %>
                     <% if current_user.already_favorited?(recipe) %>
-                      <%= link_to recipe_favorites_path(recipe),  method: :delete do %>
-                        <i class="fa-solid fa-star fa-2x ml-2"></i>
+                      <%= link_to recipe_favorites_path(recipe), method: :delete do %>
+                        <i class="fa-solid fa-star fa-lg"></i>
                       <% end %>
                     <% else %>
                       <%= link_to recipe_favorites_path(recipe), method: :post do %>
-                        <i class="fa-regular fa-star fa-2x ml-2"></i>
+                        <i class="fa-regular fa-star fa-lg"></i>
                       <% end %>
                     <% end %>
                   <% else %>
                     <%= link_to recipe_favorites_path(recipe), method: :post do %>
-                      <i class="fa-regular fa-star fa-2x ml-2"></i>
+                      <i class="fa-regular fa-star fa-lg"></i>
                     <% end %>
                   <% end %>
                   <%= recipe.favorites.count %>
                   
                   <!--コメント-->
                   <%= link_to recipe_comments_path(recipe) do %>
-                    <i class="fa-solid fa-comments fa-2x ml-2" style="color:#fff;"></i>
+                    <i class="fa-solid fa-comments fa-lg"></i>
                   <% end %>
                   <%= recipe.comments.count %>
                 </div>
+                
               </div>
+              <p class="card-text text-center"><small class="text-muted"><%= recipe.created_at.to_s(:datetime_jp) %></small></p>
             </div>
             
 
