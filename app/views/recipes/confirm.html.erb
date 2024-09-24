@@ -1,4 +1,21 @@
-<h1>Recipes#confirm</h1>
-<p>Find me in app/views/recipes/confirm.html.erb</p>
+<div class="row mb-5">
+    <div class="col-8 offset-2 mb-5 text-center">
+      <h1 class="mb-3">この投稿を削除しますか？</h1>
+      <p>
+        この投稿に関連するいいねやコメントのデータも削除されます。</br>
+        削除後はデータの復元を行うことはできません。</br>
+        予めご了承下さい。
+      </p>
+    </div>
 
-<%= link_to "この投稿を削除する", recipe_path(@recipe), class: "btn btn-danger btn-block", method: :delete, data: { confirm: "本当に削除しますか？" } %>
+    <div class="col-6 offset-3">
+      <%= link_to "この投稿を削除する", recipe_path(@recipe), class: "btn btn-danger btn-block", method: :delete, data: { confirm: "本当に削除しますか？" } %>
+    </div>
+</div>
+<div class="row links mb-5">
+  <div class="col-md-8 offset-md-2">
+    <%= link_to edit_recipe_path(@recipe), class: "d-flex justify-content-center" do %>
+      < 戻る
+    <% end %>
+  </div>
+</div>
