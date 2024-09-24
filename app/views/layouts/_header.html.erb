@@ -1,10 +1,26 @@
-<nav class="navbar mb-4" style="box-shadow:0px 8px 5px -5px rgba(0,0,0,0.5)" >
-  <div class="container-fluid m-2 justify-content-center">
+<nav class="navbar mb-4" style="box-shadow:0px 8px 5px -5px rgba(0,0,0,0.5)">
+  <div class="container-fluid m-2 d-flex justify-content-between">
+    <div clas="navbar-brand">
+      <% if user_signed_in? %>
+        <%= link_to recipes_path do %>
+          <div style="color:#F8F5E3; font-size:25px">節約ごはん</div>
+        <% end %>
+      <% else %>
+        <%= link_to top_path do %>
+          <div style="color:#F8F5E3; font-size:25px">節約ごはん</div>
+        <% end %>
+      <% end %>
+    </div>
     <% if user_signed_in? %>
       <%= form_with url: recipes_path, method: :get, class: "d-flex" do |f| %>
         <%= f.search_field :keyword, placeholder: "材料で検索する", class: "form-control me-2 rounded-pill" %>
         <%= f.submit "検索", class: "btn" %>
       <% end %>
+      <div class="btn rounded-pill btn-info m-1">
+        <%= link_to destroy_user_session_path, method: :delete, style: "color:#98BCAC;" do %>
+          <i class="fa-solid fa-right-from-bracket"> </i>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </nav>

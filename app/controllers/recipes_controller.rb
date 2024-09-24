@@ -31,6 +31,9 @@ class RecipesController < ApplicationController
   def edit
     @recipe = Recipe.find(params[:id])
     @submit_label = "更新"
+    unless current_user.id == @recipe.user_id
+      redirect_to recipes_path
+    end
   end
   
   def update

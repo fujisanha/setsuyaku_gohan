@@ -52,6 +52,14 @@ input.font-awesome {
   background-color: #80A492;
   border-color: #80A492;
 }
+.btn-info {
+  background-color: #F8F5E3;
+  border-color: #F8F5E3;
+}
+.btn-info:hover {
+  background-color:#80A492;
+  border-color: #80A492;
+}
 .card {
   background-color: #F8F5E3;
   color: #545454;
@@ -62,8 +70,10 @@ input.font-awesome {
   font-weight: bold;
   border-bottom: 6px double #98BCAC;
 }
-
 .card a {
+  text-decoration: none!important;
+}
+nav a {
   text-decoration: none!important;
 }
 
