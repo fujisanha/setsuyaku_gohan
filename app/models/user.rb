@@ -13,6 +13,7 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :password, :password_confirmation, length: { minimum: 6 }, on: :new
   validates :password, confirmation: true, on: :new
+  validates :image, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'] }
   
   has_one_attached :image
   
