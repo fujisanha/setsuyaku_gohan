@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'events/new', as: 'event'
   # ユーザー
   resources :users, only:[:index, :edit, :update]
   get 'users/my', as: 'my'
