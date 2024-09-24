@@ -1,16 +1,12 @@
 <nav class="navbar mb-4" style="box-shadow:0px 8px 5px -5px rgba(0,0,0,0.5)" >
-
   <div class="container-fluid m-2 justify-content-center">
-    <% if yield(:search_form).present? %>
-      <%= yield(:search_form) %>
-    <% else %>
-      <%= form_with url: recipes_path, method: :get, class: "d-flex" do |f| %>
-        <%= f.search_field :keyword, class: "form-control me-2 rounded-pill", style: "font-family:FontAwesome;" %>
-        <%= f.submit "search" %>
-      <% end %>
+    <%= form_with url: recipes_path, method: :get, class: "d-flex" do |f| %>
+      <%= f.search_field :keyword, placeholder: "材料で検索する", class: "form-control me-2 rounded-pill" %>
+      <%= f.submit "検索", class: "btn" %>
     <% end %>
   </div>
 </nav>
+
 <% if user_signed_in? %>
 <nav class="row">
   <div class="col-10 offset-1">
