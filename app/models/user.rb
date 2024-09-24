@@ -8,11 +8,11 @@ class User < ApplicationRecord
   has_many :recipes, dependent: :destroy
   has_many :comments, dependent: :destroy
          
-  validates :name, :email, :password, :password_confirmation, presence: true
+  validates :name, :email, :password, :password_confirmation, presence: true, on: :new
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  validates :password, :password_confirmation, length: { minimum: 6 }
-  validates :password, confirmation: true
+  validates :password, :password_confirmation, length: { minimum: 6 }, on: :new
+  validates :password, confirmation: true, on: :new
   
   has_one_attached :image
   
