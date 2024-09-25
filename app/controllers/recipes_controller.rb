@@ -9,6 +9,7 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.build(recipe_params)
     if @recipe.save
+      flash[:notice] = "created"
       redirect_to recipes_path
     else
       render :new
@@ -32,6 +33,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @submit_label = "更新"
     unless current_user.id == @recipe.user_id
+      flash[:alert] = "this recipe cannot be edited"
       redirect_to recipes_path
     end
   end
@@ -39,6 +41,7 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
+      flash[:notice] = "updated"
       redirect_to recipe_path(@recipe)
     else
       render :edit
@@ -52,6 +55,7 @@ class RecipesController < ApplicationController
   def destroy
     recipe = Recipe.find(params[:id])
     recipe.destroy
+    flash[:notice] = "deleted"
     redirect_to recipes_path
   end
   

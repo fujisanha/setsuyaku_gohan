@@ -9,11 +9,10 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params.merge(recipe_id: params[:recipe_id]))
     @recipe = @comment.recipe
     if @comment.save
-      flash[:notice] = "success"
+      flash[:notice] = "created"
       redirect_to recipe_comments_path(@recipe)  #コメント送信後は、一つ前のページへリダイレクトさせる。
     else
       @comments = @recipe.comments
-      flash.now[:alert] = "failed"
       render 'comments/index'  #同上
     end
   end

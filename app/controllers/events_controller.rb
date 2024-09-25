@@ -11,7 +11,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.build(event_params)
     if @event.save
-      flash[:notice] = "記録しました。"
+      flash[:notice] = "recorded"
       redirect_to new_event_path
     else
       render :new
@@ -26,7 +26,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     if @event.update(event_params)
-      flash[:notice] = "編集しました。"
+      flash[:notice] = "updated"
       redirect_to new_event_path
     else
       render :new
@@ -36,7 +36,7 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     if @event.destroy
-      flash[:notice] = "削除しました。"
+      flash[:notice] = "deleted"
       redirect_to new_event_path
     else
       render :new
