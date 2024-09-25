@@ -12,7 +12,8 @@
             <span style="color:tomato;">－<%= event.expense %></span><br>
             <span style="color:purple;">計<%= @total %></span><br>
             <%= link_to "編集", edit_event_path(event), class: "mr-1" %>
-            <%= link_to "削除", event_path(event), method: :delete, data: { confirm: "本当に削除しますか？" }, style: "color:red;" %>
+            <%= link_to "削除", event_path(event), method: :delete, data: { confirm: "本当に削除しますか？" }, style: "color:red;" %></br>
+            <small class="text-muted"><%= event.created_at.to_s(:datetime_jp) %></small>
           </div>
         <% end %>
       <% end %>
