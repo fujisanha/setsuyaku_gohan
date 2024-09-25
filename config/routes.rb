@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   
   resources :events, only:[:new, :create, :update, :destroy, :edit]
   # ユーザー
-  resources :users, only:[:index, :edit, :update]
-  get 'users/my', as: 'my'
+  resources :users, only:[:index, :edit, :update, :show]
   
   # recipesとfavorites
   resources :recipes do

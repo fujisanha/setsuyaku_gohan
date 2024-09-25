@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @users = User.all.order(created_at: :desc)
   end
   
-  def my
+  def show
   end
   
   def edit
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       flash[:notice] = "updated"
-      redirect_to my_path
+      redirect_to user_path(current_user)
     else
       render :edit
     end

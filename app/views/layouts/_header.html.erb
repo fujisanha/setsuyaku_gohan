@@ -25,15 +25,15 @@
   <div class="col-10 offset-1">
     <div class="row d-flex justify-content-center mb-5">
 
-      <% if controller_name == "users" && (action_name == "my" || action_name == "edit") %>
+      <% if controller_name == "users" && (action_name == "show" || action_name == "edit") %>
         <div class="col-lg-2 btn rounded-pill btn-success m-1">
-          <%= link_to my_path, style: "color:#fff;" do %>
+          <%= link_to user_path(current_user), style: "color:#fff;" do %>
             <i class="fa-solid fa-user"> マイページ</i>
           <% end %>
         </div>
       <% else %>
         <div class="col-lg-2 btn rounded-pill btn-primary m-1">
-          <%= link_to my_path, style: "color:#fff;" do %>
+          <%= link_to user_path(current_user), style: "color:#fff;" do %>
             <i class="fa-solid fa-user"> マイページ</i>
           <% end %>
         </div>
