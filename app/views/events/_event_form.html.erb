@@ -1,0 +1,18 @@
+<div class="row time">
+    <div class="col-6 offset-3 text-center mb-5">
+      <%= f.datetime_select :start_time %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-3 offset-md-3">
+      <%= f.text_field :income, placeholder: "収入", class: "form-control mb-1 rounded-pill" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :expense, placeholder: "支出", class: "form-control mb-1 rounded-pill" %>
+    </div>
+  </div>
+  <div class="row actions mb-5">
+    <div class="col-md-2 offset-md-5">
+      <%= f.submit @submit_label, class: "btn btn-primary btn-block rounded-pill", style: "font-weight:bold;" %>
+    </div>
+  </div>

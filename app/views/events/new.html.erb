@@ -5,12 +5,12 @@
   <div class="row mb-5">
     <div class="col-10 offset-1">
       <%= month_calendar events: @events do |date, events| %>
-        <span style="color:gray;"><%= date.day %></span><br>
+        <span style="color:#fff;"><%= date.day %></span><br>
         <% events.each do |event| %>
           <div>
             <span style="color:green;">＋<%= event.income %></span><br>
             <span style="color:tomato;">－<%= event.expense %></span><br>
-            <span style="color:#fff;">計<%= @total %></span><br>
+            <span style="color:purple;">計<%= @total %></span><br>
             <%= link_to "編集", edit_event_path(event), class: "mr-1" %>
             <%= link_to "削除", event_path(event), method: :delete, data: { confirm: "本当に削除しますか？" }, style: "color:red;" %>
           </div>
@@ -19,22 +19,6 @@
     </div>
   </div>
   
-  <div class="row time">
-    <div class="col-6 offset-3 text-center mb-5">
-      <%= f.datetime_select :start_time %>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <div class="col-md-3 offset-md-3">
-      <%= f.text_field :income, placeholder: "収入", class: "form-control mb-1 rounded-pill" %>
-    </div>
-    <div class="col-md-3">
-      <%= f.text_field :expense, placeholder: "支出", class: "form-control mb-1 rounded-pill" %>
-    </div>
-  </div>
-  <div class="row actions mb-5">
-    <div class="col-md-2 offset-md-5">
-      <%= f.submit "記録する", class: "btn btn-primary btn-block rounded-pill", style: "font-weight:bold;" %>
-    </div>
-  </div>
+   <%= render partial: "event_form", locals: { f: f } %>
+  
 <% end %>

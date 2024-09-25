@@ -5,6 +5,7 @@ class EventsController < ApplicationController
     @events = Event.all
     @event = Event.new
     @total = 0
+    @submit_label = "記録する"
   end
   
   def create
@@ -19,6 +20,7 @@ class EventsController < ApplicationController
   
   def edit
     @event = Event.find(params[:id])
+    @submit_label = "更新する"
   end
   
   def update
