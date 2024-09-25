@@ -1,9 +1,15 @@
-<div class="row">
+<div>
+  <%= flash[:notice] %>
+</div>
+
+<%#= render 'layouts/error_messages', resource: f.object %>
+
+<div class="row mb-5">
     <div class="col-10 offset-1">
-        
         <%= month_calendar do |date| %>
 　        <%= date.day %>
         <% end %>
-        
     </div>
+</div>
+<div class="row">
 </div>

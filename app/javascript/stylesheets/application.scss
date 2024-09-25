@@ -162,6 +162,8 @@ nav a {
 .fa-comment {
   color: #fff;
 }
+
+// コメントの吹き出し
 .balloon5 {
   width: 100%;
   margin: 1.5em 0;
@@ -173,18 +175,15 @@ nav a {
   margin-right: -90px;
   width: 80px;
 }
-
 .balloon5 .faceicon img{
   width: 100%;
   height: auto;
   border: solid 3px #F8F5E3;
   border-radius: 50%;
 }
-
 .balloon5 .chatting {
   width: 100%;
 }
-
 .says {
   display: inline-block;
   position: relative; 
@@ -193,7 +192,6 @@ nav a {
   border-radius: 12px;
   background: #F8F5E3;
 }
-
 .says:after {
   content: "";
   display: inline-block;
@@ -203,10 +201,10 @@ nav a {
   border: 12px solid transparent;
   border-right: 12px solid #F8F5E3;
 }
-
 .says p {
   margin: 0;
   padding: 0;
   color: #545454;
 }
 
+// カレンダーのレイアウト
