@@ -4,6 +4,10 @@
 body {
   font-weight: bold;
 }
+
+body a {
+  text-decoration: none!important;
+}
 // foneawwesomeの定義
 input.font-awesome {
     font-family: FontAwesome;
@@ -69,13 +73,6 @@ input.font-awesome {
   color: #545454;
   font-weight: bold;
   border-bottom: 6px double #98BCAC;
-}
-.card a {
-  text-decoration: none!important;
-}
-nav a {
-  
-  text-decoration: none!important;
 }
 
 // topページのボタン
