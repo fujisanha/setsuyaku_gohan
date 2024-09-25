@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'events/new', as: 'event'
+  resources :events, only:[:new, :create, :update, :destroy, :edit]
   # ユーザー
   resources :users, only:[:index, :edit, :update]
   get 'users/my', as: 'my'

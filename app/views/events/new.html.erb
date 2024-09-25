@@ -1,15 +1,38 @@
-<div>
-  <%= flash[:notice] %>
-</div>
+<%= form_with model: @event, local: true do |f| %>
 
-<%#= render 'layouts/error_messages', resource: f.object %>
+  <%= render 'layouts/error_messages', resource: f.object %>
 
-<div class="row mb-5">
+  <div class="row mb-5">
     <div class="col-10 offset-1">
-        <%= month_calendar do |date| %>
-　        <%= date.day %>
+      <%= month_calendar events: @events do |date, events| %>
+        <span style="color:gray;"><%= date.day %></span><br>
+        <% events.each do |event| %>
+          <div>
+            <span style="color:green;">＋<%= event.income %></span><br>
+            <span style="color:tomato;">－<%= event.expense %></span><br>
+            <span style="color:#fff;">計<%= @total %></span><br>
+          </div>
         <% end %>
+      <% end %>
     </div>
-</div>
-<div class="row">
-</div>
+  </div>
+  
+  <div class="row time">
+    <div class="col-6 offset-3 text-center mb-5">
+      <%= f.datetime_select :start_time %>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-3 offset-md-3">
+      <%= f.text_field :income, placeholder: "収入", class: "form-control mb-1 rounded-pill" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.text_field :expense, placeholder: "支出", class: "form-control mb-1 rounded-pill" %>
+    </div>
+  </div>
+  <div class="row actions mb-5">
+    <div class="col-md-2 offset-md-5">
+      <%= f.submit "記録する", class: "btn btn-primary btn-block rounded-pill", style: "font-weight:bold;" %>
+    </div>
+  </div>
+<% end %>

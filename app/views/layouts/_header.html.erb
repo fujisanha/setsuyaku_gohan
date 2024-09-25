@@ -81,15 +81,15 @@
         </div>
       <% end %>
 
-      <% if current_page?(event_path) %>
+      <% if current_page?(new_event_path) %>
         <div class="col-lg-2 btn rounded-pill btn-success m-1">
-          <%= link_to event_path, style: "color:#fff;" do %>
+          <%= link_to new_event_path, style: "color:#fff;" do %>
              <i class="fa-solid fa-pencil"> 記録する</i>
           <% end %>
         </div>
       <% else %>
         <div class="col-lg-2 btn rounded-pill btn-primary m-1">
-          <%= link_to event_path, style: "color:#fff;" do %>
+          <%= link_to new_event_path, style: "color:#fff;" do %>
             <i class="fa-solid fa-pencil"> 記録する</i>
           <% end %>
         </div>
