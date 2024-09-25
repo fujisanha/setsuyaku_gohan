@@ -2,15 +2,22 @@
 
   <%= render 'layouts/error_messages', resource: f.object %>
 
+
+  <div class="col-8 offset-2 d-flex justify-content-around mb-5" style="border-bottom:solid 1px #F8F5E3;">
+    <h5>収入<%= @total_income %>円</h5>
+    <h5>支出<%= @total_expense %>円</h5>
+    <h5>合計<%= @total_income-@total_expense %>円</h5>
+  </div>
+    
   <div class="row mb-5">
     <div class="col-10 offset-1">
       <%= month_calendar events: @events do |date, events| %>
         <span style="color:#fff;"><%= date.day %></span><br>
         <% events.each do |event| %>
           <div>
-            <span style="color:green;">＋<%= event.income %></span><br>
-            <span style="color:tomato;">－<%= event.expense %></span><br>
-            <span style="color:purple;">計<%= event.income-event.expense %></span><br>
+            <span style="color:green;">＋<%= event.income %>円</span><br>
+            <span style="color:tomato;">－<%= event.expense %>円</span><br>
+            <span style="color:purple;">計<%= event.income-event.expense %>円</span><br>
             <%= link_to "編集", edit_event_path(event), class: "mr-1" %>
             <%= link_to "削除", event_path(event), method: :delete, data: { confirm: "本当に削除しますか？" }, style: "color:red;" %></br>
             <small class="text-muted"><%= event.created_at.to_s(:datetime_jp) %></small>

@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   def new
     @events = Event.all
     @event = Event.new
-    @total = 0
+    @total_income = @events.sum(:income)
+    @total_expense = @events.sum(:expense)
     @submit_label = "記録する"
   end
   

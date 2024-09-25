@@ -1,6 +1,6 @@
 <div class="row simple-calendar">
-  <div class="col-8 offset-2 text-center calendar-heading mb-3">
-    <h2 class="mb-4"><time datetime="<%= start_date.strftime('%Y-%m') %>" class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></time></h2>
+  <div class="col-8 offset-2 d-flex justify-content-between calendar-heading mb-3">
+    <h2 class="mb-4" style="color:#fff;"><time datetime="<%= start_date.strftime('%Y-%m') %>" class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></time></h2>
 
     <h3>
       <%= link_to t('simple_calendar.previous', default: '<'), calendar.url_for_previous_view %>
