@@ -7,10 +7,3 @@
     </div>
   </div>
 </footer>
-<% if user_signed_in? %>
-<div class="col-lg-2 btn rounded-pill btn-primary m-1">
-  <%= link_to destroy_user_session_path, method: :delete, style: "color:#fff;" do %>
-    <i class="fa-solid fa-right-from-bracket"> ログアウト</i>
-  <% end %>
-</div>
-<% end %>
