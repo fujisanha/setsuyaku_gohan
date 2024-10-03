@@ -1,0 +1,33 @@
+<nav class="navbar mb-4" style="box-shadow:0px 8px 5px -5px rgba(0,0,0,0.5)">
+  <div class="container-fluid m-2 d-flex justify-content-between">
+    <div clas="navbar-brand">
+      <%= link_to admin_root_path do %>
+        <div style="color:#F8F5E3; font-size:25px">管理者コンソール</div>
+      <% end %>
+    </div>
+  </div>
+</nav>
+
+<% if admin_signed_in? %>
+  <nav class="row">
+    <div class="col-10 offset-1">
+      <div class="row d-flex justify-content-center mb-5">
+        <div class="col-lg-2 btn rounded-pill btn-success m-1">
+          <%= link_to admin_root_path, style: "color:#fff;" do %>
+            <i class="fa-solid fa-user"> users</i>
+          <% end %>
+        </div>
+        <div class="col-lg-2 btn rounded-pill btn-success m-1">
+          <%= link_to admin_comments_path, style: "color:#fff;" do %>
+            <i class="fa-solid fa-user"> comments</i>
+          <% end %>
+        </div>
+        <div class="col-lg-2 btn rounded-pill btn-success m-1">
+          <%= link_to destroy_admin_session_path, method: :delete, style: "color:#fff;" do %>
+            <i class="fa-solid fa-user"> Logout</i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </nav>
+<% end %>

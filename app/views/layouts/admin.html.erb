@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>admin | 節約ごはん</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag('節約ごはん3.png') %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/22a59f0dba.js" crossorigin="anonymous"></script>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="d-flex flex-column vh-100" style="background-color:#98BCAC;">
+    <header>
+      <%= render 'layouts/admin_header' %>
+    </header>
+    <main class="container mb-auto">
+      <div class="mb-3">
+        <%= render 'layouts/notification' %>
+      </div>
+      <%= yield %>
+    </main>
+    <footer>
+      <%= render 'layouts/footer' %>
+    </footer>
+  </body>
+</html>

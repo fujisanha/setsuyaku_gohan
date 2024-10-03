@@ -11,6 +11,7 @@ class EventsController < ApplicationController
   
   def create
     @event = current_user.events.build(event_params)
+    #byebug
     if @event.save
       flash[:notice] = "recorded"
       redirect_to new_event_path
