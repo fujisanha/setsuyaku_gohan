@@ -9,10 +9,10 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_in_path_for(resource)
-    my_path
+    recipe_path(current_user)
   end
   def after_sign_up_path_for(resource)
-    my_path
+    recipe_path(current_user)
   end
   def after_sign_out_path_for(resource_or_scope)
     top_path
