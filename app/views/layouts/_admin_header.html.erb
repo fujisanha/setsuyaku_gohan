@@ -12,19 +12,37 @@
   <nav class="row">
     <div class="col-10 offset-1">
       <div class="row d-flex justify-content-center mb-5">
-        <div class="col-lg-2 btn rounded-pill btn-success m-1">
-          <%= link_to admin_root_path, style: "color:#fff;" do %>
-            <i class="fa-solid fa-user"> users</i>
-          <% end %>
-        </div>
-        <div class="col-lg-2 btn rounded-pill btn-success m-1">
-          <%= link_to admin_comments_path, style: "color:#fff;" do %>
-            <i class="fa-solid fa-user"> comments</i>
-          <% end %>
-        </div>
-        <div class="col-lg-2 btn rounded-pill btn-success m-1">
+        <% if current_page?(admin_root_path) %>
+          <div class="col-lg-2 btn rounded-pill btn-success m-1">
+            <%= link_to admin_root_path, style: "color:#fff;" do %>
+              <i class="fa-solid fa-user"> ユーザー管理</i>
+            <% end %>
+          </div>
+        <% else %>
+           <div class="col-lg-2 btn rounded-pill btn-primary m-1">
+            <%= link_to admin_root_path, style: "color:#fff;" do %>
+              <i class="fa-solid fa-user"> ユーザー管理</i>
+            <% end %>
+          </div>
+        <% end %>
+        
+        <% if current_page?(admin_comments_path) %>
+          <div class="col-lg-2 btn rounded-pill btn-success m-1">
+            <%= link_to admin_comments_path, style: "color:#fff;" do %>
+              <i class="fa-solid fa-user"> コメント管理</i>
+            <% end %>
+          </div>
+        <% else %>
+           <div class="col-lg-2 btn rounded-pill btn-primary m-1">
+            <%= link_to admin_comments_path, style: "color:#fff;" do %>
+              <i class="fa-solid fa-user"> コメント管理</i>
+            <% end %>
+          </div>
+        <% end %>
+        
+        <div class="col-lg-2 btn rounded-pill btn-primary m-1">
           <%= link_to destroy_admin_session_path, method: :delete, style: "color:#fff;" do %>
-            <i class="fa-solid fa-user"> Logout</i>
+            <i class="fa-solid fa-user"> ログアウト</i>
           <% end %>
         </div>
       </div>
