@@ -1,0 +1,21 @@
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <% if user.image.attached? %>
+        <%= image_tag user.image.variant(resize: "440x386^", gravity: :center, crop: "440x386+0+0").processed, class: "card-img-top object-fit-cover border rounded-circle m-3" %>
+      <% else %>
+        <%= image_tag "no_image.png", class: "card-img-top object-fit-cover border rounded-circle m-3" %>
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= user.name %></h5>
+        <p class="card-text"><%= user.email %></p>
+        <p class="card-text"><%= user.introduction %></p>
+        <p class="card-text">
+          <small class="text-muted"><%= user.created_at.to_s(:datetime_jp) %></small>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
