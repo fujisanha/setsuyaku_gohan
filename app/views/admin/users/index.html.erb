@@ -3,9 +3,9 @@
 
     <div class="row d-flex justify-content-center">
       <% @users.each do |user| %>
-      
-        <%= render partial: "users/user_card", locals: { user: user } %>
-  
+        <%= link_to admin_user_path(user) do %>
+          <%= render partial: "users/user_card", locals: { user: user } %>
+        <% end %>
       <% end %>
     </div>
   </div>

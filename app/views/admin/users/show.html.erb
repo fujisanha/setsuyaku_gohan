@@ -1,2 +1,12 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div class="row mb-5">
+  <div class="col-10 offset-1">
+
+    <div class="row d-flex justify-content-center">
+      <%= render partial: "users/user_card", locals: { user: @user } %>
+    </div>
+    <div class="col-6 offset-3">
+      <%= link_to "このユーザーを削除する", admin_user_path(@user), class: "btn btn-danger btn-block", method: :delete, data: { confirm: "本当に削除しますか？" } %>
+    </div>
+
+  </div>
+</div>
