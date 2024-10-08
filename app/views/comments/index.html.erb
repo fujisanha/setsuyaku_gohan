@@ -62,22 +62,7 @@
 <div class="row d-flex justify-content-center" >
   <ul>
     <% @comments.each do |comment| %>
-      <!--吹き出しはじまり-->
-      <div class="balloon5">
-        <div class="faceicon">
-          <% if comment.user.image.attached? %>
-            <%= image_tag comment.user.image %>
-          <% else %>
-            <%= image_tag "no_image.png" %>
-          <% end %>
-        </div>
-        <div class="chatting">
-          <div class="says">
-            <%= comment.comment %>
-          </div>
-        </div>
-      </div>
-      <!--吹き出し終わり-->
+      <%= render partial: "comment", locals: { comment: comment } %>
     <% end %>
   </ul>
 </div>
