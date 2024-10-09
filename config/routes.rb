@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+
+
+  # デバイス
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    passwords: 'users/passwords'
+  }
+
+  # root to: 'recipes#index'
+  root to: 'homes#top'
+  # homes
+  get 'homes/top', as: 'top'
+  get 'homes/about', as: 'about'
+  get "users" => redirect("/users/sign_up")
+  
   resources :events, only:[:new, :create, :update, :destroy, :edit]
   # ユーザー
   resources :users, only:[:index, :edit, :update, :show]
@@ -10,19 +26,6 @@ Rails.application.routes.draw do
   end
   get 'recipes/confirm/:id', to: "recipes#confirm", as: 'confirm'
 
-
-  # デバイス
-  devise_for :users, controllers: {
-    registrations: 'users/registrations',
-    passwords: 'users/passwords'
-  }
-
-  # root to: 'recipes#index'
-  root to: 'homes#top'
-  # homes
-  get 'homes/top', as: 'top'
-  get 'homes/about', as: 'about'
-  get "users" => redirect("/users/sign_up")
 
   # ゲストログイン
   devise_scope :user do
