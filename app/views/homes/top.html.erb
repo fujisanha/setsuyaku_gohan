@@ -4,11 +4,9 @@
   </div>
 </div>
 <div class="row d-grid gap-2 col-sm-6 mx-auto text-center">
-  <div class="col-lg-12 btn rounded-pill mb-4 top-login-btn" >
-    <%= link_to new_user_registration_path, style: "color:#fff;" do %>
-      <i class="fa-solid fa-user-plus"> 新規登録</i>
-    <% end %>
-  </div>
+  <%= link_to new_user_registration_path, style: "color:#fff;", class: "col-lg-12 btn rounded-pill mb-4 top-login-btn" do %>
+    <i class="fa-solid fa-user-plus"> 新規登録</i>
+  <% end %>
   <div class="col-lg-12 btn rounded-pill mb-4 top-login-btn" >
     <%= link_to new_user_session_path, style: "color:#fff;" do %>
       <i class="fa-solid fa-right-to-bracket"> ログイン</i>

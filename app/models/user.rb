@@ -21,8 +21,10 @@ class User < ApplicationRecord
   has_one_attached :image
 
   def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |user|
+    find_or_create_by(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
+      user.name = "Guest"
+      user.image.attach(io: File.open(Rails.root.join('app/assets/images/no_image.png')), filename: "default-img.png")
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
   end
