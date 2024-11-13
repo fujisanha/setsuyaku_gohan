@@ -17,6 +17,11 @@
         <%= f.submit "検索", class: "btn-primary ml-1 rounded-pill", style: "font-weight:bold" %>
       <% end %>
     <% end %>
+    <div class="col-lg-1 btn rounded-pill btn-primary m-1">
+        <%= link_to destroy_user_session_path, method: :delete, style: "color:white;" do %>
+          <i class="fa-solid fa-right-from-bracket"></i>
+        <% end %>
+      </div>
   </div>
 </nav>
 
