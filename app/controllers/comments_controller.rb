@@ -16,6 +16,13 @@ class CommentsController < ApplicationController
       render 'comments/index'  #同上
     end
   end
+  
+  def destroy
+    comment = Comment.find(params[:id])
+    comment.destroy
+    flash[:notice] = "deleted"
+    redirect_to comments_path
+  end
 
   private
   def comment_params
