@@ -39,6 +39,20 @@
         </div>
       <% end %>
 
+      <% if current_page?(users_path) %>
+        <div class="col-lg-2 btn rounded-pill btn-success m-1">
+          <%= link_to users_path, style: "color:#fff;" do %>
+             <i class="fa-solid fa-users"> ユーザー</i>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="col-lg-2 btn rounded-pill btn-primary m-1">
+          <%= link_to users_path, style: "color:#fff;" do %>
+             <i class="fa-solid fa-users"> ユーザー</i>
+          <% end %>
+        </div>
+      <% end %>
+
       <% if (controller_name == "recipes" && (action_name == "index" || action_name == "show" || action_name == "edit" || action_name == "confirm" )) || (controller_name == "comments" && action_name == "index") %>
         <div class="col-lg-2 btn rounded-pill btn-success m-1">
           <%= link_to recipes_path, style: "color:#fff;" do %>
@@ -80,12 +94,6 @@
           <% end %>
         </div>
       <% end %>
-      
-      <div class="col-lg-2 btn rounded-pill btn-primary m-1">
-        <%= link_to destroy_user_session_path, method: :delete do %>
-          <i class="fa-solid fa-right-from-bracket"> ログアウト</i>
-        <% end %>
-      </div>
     </div>
   </div>
 </nav>

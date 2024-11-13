@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   # homes
   get 'homes/top', as: 'top'
   get 'homes/about', as: 'about'
-  get "users" => redirect("/users/sign_up")
   
   resources :events, only:[:new, :create, :update, :destroy, :edit]
   # ユーザー
