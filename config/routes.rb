@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
 
-  # root to: 'recipes#index'
   root to: 'homes#top'
+  
   # homes
   get 'homes/top', as: 'top'
   get 'homes/about', as: 'about'
