@@ -49,17 +49,27 @@
 <% end %>
 
 <script>
+  // blobはバイナリデータを表すオブジェクト↓
   const createImageHTML = (blob) => {
+    // idであるprev-imageを取得する↓
     const imageElement = document.getElementById('prev-image');
+    // 表示する画像を生成↓
     const blobImage = document.createElement('img');
+    // classにimg-thumbnailをセットする↓
     blobImage.setAttribute('class', 'img-thumbnail');
+    // 生成したimg要素のsrc属性に値をセット↓
     blobImage.setAttribute('src', blob);
+    // 子要素を削除する↓
     imageElement.removeChild(imageElement.children[0]);
+    // 生成した要素をブラウザに表示する↓
     imageElement.appendChild(blobImage);
   };
   
+  // recipe.imageを取得し変更する↓
   document.getElementById('recipe_image').addEventListener('change', (e) => {
+    // eの中のtargetの中のfilesという配列の中に格納された画像を変数に代入する↓
     const file = e.target.files[0];
+    // 画像のURLを生成↓
     const blob = window.URL.createObjectURL(file);
     createImageHTML(blob);
   });
