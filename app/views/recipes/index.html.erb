@@ -16,6 +16,7 @@
               <div class="card-body">
                 <h5 class="card-title"><%= recipe.title %></h5>
                             <!--いいね機能の実装-->
+                            
                 <div>
                   <% if current_user %>
                     <% if current_user.already_favorited?(recipe) %>
