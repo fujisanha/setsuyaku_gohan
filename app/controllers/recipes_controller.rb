@@ -18,6 +18,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+    # あいまい検索
     @recipes = @recipes.joins(:materials).where("materials.name LIKE ?", "%#{params[:keyword]}%") if params[:keyword].present?
     @recipes = @recipes.order(created_at: :desc).uniq if @recipes.any?
   end
