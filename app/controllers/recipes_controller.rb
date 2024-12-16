@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
-    # あいまい検索
+    # あいまい検索:keywordがidとなる
     @recipes = @recipes.joins(:materials).where("materials.name LIKE ?", "%#{params[:keyword]}%") if params[:keyword].present?
     # uniqは重複を取り除くメソッド
     @recipes = @recipes.order(created_at: :desc).uniq if @recipes.any?
